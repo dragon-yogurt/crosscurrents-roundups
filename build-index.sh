@@ -45,12 +45,16 @@ with open('index.html') as f:
     html = f.read()
 entries = os.environ['ENTRIES']
 new_block = f'<ul class="weeks">\n{entries}</ul>'
-html_new = re.sub(r'<ul class="weeks">.*?</ul>', new_block, html, flags=re.DOTALL)
-if html_new == html:
+pattern = re.compile(r'<ul class="weeks">.*?</ul>', re.DOTALL)
+if not pattern.search(html):
     print('FAIL: <ul class="weeks">...</ul> block not found in index.html', file=sys.stderr)
     sys.exit(1)
+html_new = pattern.sub(new_block, html)
+n = entries.count('<li>')
+if html_new == html:
+    print(f'index.html unchanged ({n} week{"s" if n != 1 else ""}; already in sync)')
+    sys.exit(0)
 with open('index.html', 'w') as f:
     f.write(html_new)
-n = entries.count('<li>')
 print(f'index.html updated with {n} week{"s" if n != 1 else ""}')
 PYEOF
