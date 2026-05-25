@@ -25,10 +25,16 @@ for dir in $(ls -d 20*-* 2>/dev/null | sort -r); do
     TITLE=$(grep -o '<title>[^<]*</title>' "$dir/index.html" | sed 's|<title>||;s|</title>||' | head -1)
     LABEL=${TITLE#Heterodox Roundup: }
     [ -z "$LABEL" ] && LABEL="Roundup for $dir"
+    # Optional briefing link — only shown when $dir/briefing.html exists
+    BRIEFING_LINK=""
+    if [ -f "$dir/briefing.html" ]; then
+        BRIEFING_LINK="<a href=\"$dir/briefing.html\" class=\"briefing\">briefing</a>"
+    fi
     cat <<EOF
   <li>
     <a href="$dir/">$LABEL</a>
     <span class="date">published $dir</span>
+    $BRIEFING_LINK
   </li>
 EOF
 done
