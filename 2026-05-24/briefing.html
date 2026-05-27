@@ -1,682 +1,2083 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crosscurrents Briefing — May 18-24, 2026</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+  <meta name="generator" content="Crosscurrents briefing bundler (markdown-it-py + Jinja2)">
+  <style>/* Crosscurrents bundle stylesheet
+ * Mobile-first, project-controlled (no framework).
+ * Palette: navy + gold + orange on off-white, matching the cover-art vibe. */
+
+:root {
+  --color-bg: #fafaf6;
+  --color-bg-alt: #f3f1e8;
+  --color-text: #1a1a1a;
+  --color-text-soft: #5a5a5a;
+  --color-text-muted: #666;
+  --color-navy: #1a3a5c;
+  --color-navy-soft: #3a5b80;
+  --color-gold: #c4953a;
+  --color-orange: #d97b3e;
+  --color-rule: #d8d5c8;
+  --color-link: #1a3a5c;
+  --color-link-hover: #d97b3e;
+  --color-current-nav: #d97b3e;
+  --color-current-nav-bg: rgba(217, 123, 62, 0.08);
+  --color-shadow: rgba(26, 58, 92, 0.15);
+
+  --font-serif: "Charter", "Source Serif Pro", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Consolas", monospace;
+  /* Display: editorial-feeling system serifs for masthead + Notable Quotes.
+     Falls through to whichever is installed on each OS — Big Caslon and
+     Hoefler Text live on macOS, Cambria/Constantia on Windows, Liberation
+     Serif on Linux, with Palatino/Georgia as universal fallbacks. Has more
+     personality than the system-ui sans the masthead used before. */
+  --font-display: "Big Caslon", "Hoefler Text", "Caslon Pro", "Adobe Caslon Pro",
+                  "Cambria", "Constantia", "Palatino Linotype", Palatino,
+                  "Iowan Old Style", "Liberation Serif", Georgia, serif;
+
+  --sidebar-width: 300px;
+  --content-max-width: 720px;
+  --breakpoint-mobile: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------------------------------------------------
+ * Layout: sidebar + main column
+ * ------------------------------------------------------------------------ */
+
+.layout {
+  display: flex;
+}
+
+#sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--color-bg-alt);
+  border-right: 1px solid var(--color-rule);
+  padding: 1.5rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 50;
+}
+
+main {
+  margin-left: var(--sidebar-width);
+  padding: 2.5rem 3rem 6rem;
+  max-width: calc(var(--sidebar-width) + var(--content-max-width) + 6rem);
+  min-height: 100vh;
+}
+
+main > .content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------------------------
+ * Hamburger toggle (mobile only)
+ * ------------------------------------------------------------------------ */
+
+#nav-toggle {
+  display: none;
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;  /* moved from left to avoid masthead collision */
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-rule);
+  background: var(--color-bg);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--color-navy);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+#nav-toggle:hover {
+  background: var(--color-bg-alt);
+}
+
+#nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 40;
+}
+
+/* ------------------------------------------------------------------------
+ * Sidebar nav typography
+ * ------------------------------------------------------------------------ */
+
+#sidenav .nav-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-navy);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+#sidenav .nav-title em {
+  display: block;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  margin-top: 0.25rem;
+}
+
+#sidenav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidenav li {
+  margin: 0;
+}
+
+#sidenav a {
+  display: block;
+  padding: 5px 8px 5px 10px;
+  color: var(--color-text-soft);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  /* Only color animates on hover; border-color + background only change on
+     `.current` (scrollspy), which is a discrete state change without
+     transition need. Trimmed from 3 properties to 1 — keeps low-end
+     Android from stuttering on the initial paint with N=hundreds nodes. */
+  transition: color 0.12s;
+}
+
+#sidenav a:hover {
+  color: var(--color-orange);
+  background: var(--color-current-nav-bg);
+}
+
+#sidenav a.current {
+  color: var(--color-current-nav);
+  border-left-color: var(--color-current-nav);
+  background: var(--color-current-nav-bg);
+  font-weight: 600;
+}
+
+#sidenav .nav-l1 {
+  font-weight: 600;
+  color: var(--color-navy);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 14px;
+}
+
+#sidenav .nav-l2 {
+  padding-left: 22px;
+  font-size: 13px;
+}
+
+#sidenav .nav-l3 {
+  padding-left: 34px;
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+
+#sidenav .nav-l4 {
+  padding-left: 46px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+#sidenav .nav-l5 {
+  padding-left: 58px;
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+}
+
+#sidenav .nav-l6 {
+  padding-left: 70px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+#sidenav details {
+  margin: 2px 0;
+}
+
+#sidenav summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#sidenav summary .chevron {
+  flex: 0 0 14px;
+  margin-right: 4px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  transition: transform 0.15s;
+}
+
+#sidenav details[open] > summary .chevron {
+  transform: rotate(90deg);
+}
+
+/* Leaf items (no children) get a phantom chevron-spacer so they align
+   horizontally with sibling <details> entries — otherwise items with
+   chevrons appear shifted right and look like children of the leaf above. */
+#sidenav .nav-leaf {
+  display: flex;
+  align-items: center;
+}
+
+#sidenav .chevron-spacer {
+  flex: 0 0 14px;
+  margin-right: 4px;
+}
+
+/* Theme dots — small color-coded indicators next to theme entries in the
+   nav (and matching left-border on body H2s, applied inline via builder).
+   Same theme name → same color across all sections it appears in
+   (Themes, Article Summaries, Full Articles) and across weeks. */
+#sidenav .theme-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+  vertical-align: 1px;
+}
+
+#sidenav summary .nav-label {
+  flex: 1 1 auto;
+}
+
+#sidenav summary a {
+  flex: 1 1 auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#sidenav .nav-sublist {
+  margin: 2px 0 6px;
+}
+
+/* ------------------------------------------------------------------------
+ * Article content typography
+ * ------------------------------------------------------------------------ */
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-navy);
+  line-height: 1.25;
+  margin: 2.5rem 0 1rem;
+  scroll-margin-top: 1rem;
+}
+
+.content h1 {
+  font-size: 1.85rem;
+  border-bottom: 3px double var(--color-gold);
+  padding-bottom: 0.3rem;
+  margin-top: 3.5rem;
+}
+
+.content h1:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.content h2 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+}
+
+.content h3 {
+  font-size: 1.15rem;
+  color: var(--color-navy-soft);
+  font-weight: 600;
+  margin-top: 1.75rem;
+}
+
+.content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  margin-top: 1.5rem;
+}
+
+.content p {
+  margin: 0 0 1.05rem;
+}
+
+.content ul, .content ol {
+  margin: 0 0 1.2rem;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  margin-bottom: 0.4rem;
+}
+
+.content blockquote {
+  position: relative;
+  margin: 1.25rem 0;
+  padding: 0.5rem 1.25rem;
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  font-style: italic;
+  border-radius: 0 4px 4px 0;
+}
+
+.content blockquote p {
+  margin: 0.5rem 0;
+}
+
+.content blockquote p:last-child:not(:only-child) {
+  font-style: normal;
+  color: var(--color-text-soft);
+  font-size: 0.92em;
+}
+
+/* Marginalia: on wide viewports, pull the last-paragraph attribution
+   (the citation after a multi-paragraph blockquote) into a right column.
+   Uses CSS grid so the blockquote's row-height = max(quote height,
+   attribution height) — long attributions push the next blockquote down
+   instead of overlapping with the next attribution's column. Distinctive
+   editorial move; gracefully falls back to under-quote on narrower screens. */
+@media (min-width: 1280px) {
+  .content blockquote {
+    /* Switch to grid: quote body in col 1, attribution in col 2.
+       Strip the blockquote's own bg/border/padding/radius — those
+       responsibilities move to the quote-body paragraph(s) in col 1
+       so the attribution column reads as "in the margin," not "in the
+       same box." */
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    column-gap: 1.5rem;
+    align-items: start;
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .content blockquote > p {
+    grid-column: 1;
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-gold);
+    padding: 0.5rem 1.25rem;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .content blockquote > p:last-child:not(:only-child) {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: start;
+    background: transparent;
+    border-left: 2px solid var(--color-gold);
+    border-radius: 0;
+    padding: 0.4rem 0 0.4rem 0.75rem;
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.82em;
+    font-style: normal;
+    color: var(--color-text-soft);
+  }
+}
+
+.content hr {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: 2.5rem 0;
+}
+
+.content a {
+  color: var(--color-link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26, 58, 92, 0.3);
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.content a:hover {
+  color: var(--color-link-hover);
+  border-bottom-color: var(--color-link-hover);
+}
+
+.content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-bg-alt);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* Tables (used for Standalone Pieces mini-TOC: 4 cols — Title / Author /
+   Publication / Summary). Fixed layout so column widths are honored and
+   long titles wrap instead of stretching the column. */
+.content table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  margin: 1rem 0 2rem;
+  background: var(--color-bg);
+  box-shadow: 0 1px 4px var(--color-shadow);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.content thead {
+  background: var(--color-navy);
+  color: var(--color-bg);
+}
+
+.content thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.content tbody tr {
+  border-top: 1px solid var(--color-rule);
+}
+
+.content tbody td {
+  padding: 9px 14px;
+  vertical-align: top;
+  line-height: 1.45;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Column widths apply to both th and td so headers and body align.
+   Body-cell color/weight is scoped to td so it doesn't override the
+   thead's light-on-navy header styling. */
+.content th:nth-child(1),
+.content td:nth-child(1) { width: 26%; }
+
+.content th:nth-child(2),
+.content td:nth-child(2) { width: 14%; }
+
+.content th:nth-child(3),
+.content td:nth-child(3) { width: 14%; }
+
+.content th:nth-child(4),
+.content td:nth-child(4) { width: 46%; }
+
+.content tbody td:nth-child(1) { font-weight: 500; }
+.content tbody td:nth-child(2) { color: var(--color-text-soft); }
+.content tbody td:nth-child(3) { color: var(--color-text-soft); font-size: 13px; }
+.content tbody td:nth-child(4) { color: var(--color-text); }
+
+.content table a {
+  border-bottom: none;
+}
+
+.content table a:hover {
+  text-decoration: underline;
+}
+
+.content figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.content figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 14px var(--color-shadow);
+}
+
+.content figcaption,
+.content .cover-caption {
+  display: block;
+  font-size: 0.88em;
+  color: var(--color-text-soft);
+  font-style: italic;
+  margin-top: 0.75rem;
+  line-height: 1.45;
+}
+
+/* ------------------------------------------------------------------------
+ * Document title header (at top of main)
+ * ------------------------------------------------------------------------ */
+
+.doc-title {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  display: inline-block;
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Editorial dateline strip — replaces the old doc-subtitle H1.
+   Layout: [navy square] week-range · Vol · Issue
+   Sits between the masthead and the cover image, with a gold rule below. */
+.doc-dateline {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin: 0 0 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--color-gold);
+}
+
+.doc-dateline .dateline-mark {
+  flex: 0 0 9px;
+  height: 9px;
+  background: var(--color-navy);
+  border-radius: 1px;
+}
+
+.doc-dateline .dateline-text {
+  flex: 1 1 auto;
+}
+
+/* Notable Quotes is the most "voice-driven" section; give its H1 the
+   display serif treatment too. */
+.content h1#notable-quotes {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2rem;
+  letter-spacing: -0.005em;
+}
+
+/* ------------------------------------------------------------------------
+ * Cover image block
+ * ------------------------------------------------------------------------ */
+
+.cover-block {
+  margin: 0 0 3rem;
+  text-align: center;
+  /* extra right + bottom margin to leave room for the offset-shadow */
+  padding: 0 12px 12px 0;
+}
+
+.cover-block img {
+  max-width: 100%;
+  max-height: 70vh;
+  height: auto;
+  border-radius: 0;
+  border: 1px solid var(--color-navy);
+  /* Two-tone offset shadow evokes a print plate pasted onto the page */
+  box-shadow: 10px 10px 0 var(--color-bg-alt),
+              10px 10px 0 1px var(--color-rule);
+}
+
+@media (max-width: 720px) {
+  .cover-block { padding: 0 6px 6px 0; }
+  .cover-block img {
+    box-shadow: 5px 5px 0 var(--color-bg-alt),
+                5px 5px 0 1px var(--color-rule);
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Essay typography — applied to the Cross-theme insights section only.
+ * Narrower measure, justified body with hyphenation, larger paragraph
+ * spacing, ornament between H2 sub-sections — all of which signal "this
+ * is essay-length writing, not a section of the bundle."
+ * ------------------------------------------------------------------------ */
+
+.content section.essay {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.content section.essay p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.content section.essay h2 {
+  margin-top: 2.75rem;
+}
+
+/* Ornament between H2 sub-sections (skip on the first H2 — no separator
+   needed right after the H1) */
+.content section.essay h2:not(:first-of-type)::before {
+  content: "✦";
+  display: block;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: normal;
+  letter-spacing: 0.4em;
+  color: var(--color-gold);
+  margin: 3rem 0 2.5rem;
+  opacity: 0.7;
+}
+
+/* The H3 "Rebuttal" (nested under Loyalist) gets a smaller ornament */
+.content section.essay h3:not(:first-of-type)::before {
+  content: "·  ·  ·";
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  margin: 2rem 0 1.5rem;
+}
+
+/* The first paragraph after H1 — slightly larger lede */
+.content section.essay h1 + p {
+  font-size: 1.05em;
+  color: var(--color-text);
+}
+
+/* ------------------------------------------------------------------------
+ * Back-to-TOC / back-link styling
+ * ------------------------------------------------------------------------ */
+
+.content p:has(> a[href="#TOC"]:only-child) {
+  text-align: right;
+  margin: 0.75rem 0 1.5rem;
+}
+
+.content a[href="#TOC"] {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border-bottom: none;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--color-bg-alt);
+  letter-spacing: 0.02em;
+  transition: color 0.12s, background 0.12s;
+}
+
+.content a[href="#TOC"]:hover {
+  color: var(--color-orange);
+  background: rgba(217, 123, 62, 0.12);
+}
+
+/* Dual back-link footer at end of Full Articles */
+.content em a[href^="#summary-"],
+.content em a[href^="#response-"] {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-navy-soft);
+  border-bottom: none;
+  padding: 2px 8px;
+  background: var(--color-bg-alt);
+  border-radius: 3px;
+}
+
+.content em a[href^="#summary-"]:hover,
+.content em a[href^="#response-"]:hover {
+  color: var(--color-orange);
+  background: rgba(217, 123, 62, 0.12);
+}
+
+/* ------------------------------------------------------------------------
+ * Skip-to-content link — invisible until keyboard-focused, then floats
+ * at top-left so users can bypass the sidebar nav.
+ * ------------------------------------------------------------------------ */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 300;
+  padding: 0.55rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--color-navy);
+  color: var(--color-bg);
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ------------------------------------------------------------------------
+ * Focus states (keyboard a11y) — visible gold outline on tab focus
+ * ------------------------------------------------------------------------ */
+
+.content a:focus-visible,
+#sidenav a:focus-visible,
+#nav-toggle:focus-visible,
+#back-to-top:focus-visible,
+#author-index-search:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.content a:focus-visible {
+  border-bottom-color: var(--color-gold);
+}
+
+/* ------------------------------------------------------------------------
+ * Drop-cap on essay lead paragraphs — pure CSS, signals "this is a
+ * publication" without any markup change. Scoped to the Cross-theme
+ * insights essay section, on the paragraph IMMEDIATELY AFTER the byline
+ * (which is an italic-only `<p>`). Catches the lead of the cross-theme
+ * essay + Optimist's take + What the Administration Would Say +
+ * Rebuttal; skips H2 sub-sections without bylines (How the themes
+ * interlock, What's missing, etc.) and the italic byline itself.
+ * ------------------------------------------------------------------------ */
+
+@media (min-width: 720px) {
+  /* Closing essays: drop-cap on the lead paragraph that follows the
+     italic byline subhead (Cross-theme insights / Optimist's take /
+     What the Administration Would Say / Rebuttal). */
+  .content section.essay > h1 + p:has(> em:only-child) + p::first-letter,
+  .content section.essay > h2 + p:has(> em:only-child) + p::first-letter,
+  .content section.essay > h3 + p:has(> em:only-child) + p::first-letter,
+  /* Per-theme syntheses: drop-cap on the first paragraph after each
+     theme H2 inside the Themes section. No byline pattern here — the
+     prose starts directly after the theme title. */
+  .content section.themes-section > h2 + p::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-size: 3.6em;
+    line-height: 0.82;
+    padding: 0.08em 0.12em 0 0;
+    color: var(--color-navy);
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Per-section reading-time pill (injected by JS into each H1 in body)
+ * ------------------------------------------------------------------------ */
+
+.content h1 .reading-time {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 0.4rem;
+}
+
+/* ------------------------------------------------------------------------
+ * Reading progress bar (fixed top, gold, scroll-driven)
+ * ------------------------------------------------------------------------ */
+
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--color-gold);
+  z-index: 200;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  /* sits above the navbar but below the hamburger button */
+  #reading-progress { z-index: 99; }
+}
+
+/* ------------------------------------------------------------------------
+ * Floating "↑ Top" button (appears after scrolling far down)
+ * ------------------------------------------------------------------------ */
+
+#back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--color-navy);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-navy);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 10px var(--color-shadow);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.18s ease-out, transform 0.18s ease-out, background 0.12s, color 0.12s;
+  z-index: 100;
+}
+
+#back-to-top.visible {
+  opacity: 0.95;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background: var(--color-orange);
+  color: var(--color-bg);
+  border-color: var(--color-orange);
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  #back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Author Index search input (injected by JS just above the table)
+ * ------------------------------------------------------------------------ */
+
+#author-index-search {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  margin: 1.25rem 0 1rem;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  border: 1px solid var(--color-rule);
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+#author-index-search::placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------------------
+ * Hover-preview tooltip
+ * ------------------------------------------------------------------------ */
+
+#hover-preview {
+  position: fixed;
+  display: none;
+  max-width: 360px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-rule);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.45;
+  box-shadow: 0 6px 24px var(--color-shadow);
+  z-index: 200;
+  pointer-events: none;
+  /* Fade-in: starts at opacity 0 + 2px translateY; JS adds .visible on next
+     frame to trigger the transition (snap-on would feel jankier). */
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.08s ease-out, transform 0.08s ease-out;
+}
+
+#hover-preview.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pinned (click-to-pin): the preview stops following the cursor and
+   becomes selectable / clickable. Highlights the gold rule to signal
+   "this is now sticky." */
+#hover-preview.pinned {
+  pointer-events: auto;
+  border-left-width: 4px;
+  box-shadow: 0 8px 28px var(--color-shadow);
+}
+
+#hover-preview .preview-close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 2px;
+}
+
+#hover-preview .preview-close:hover {
+  color: var(--color-orange);
+  background: rgba(217, 123, 62, 0.1);
+}
+
+/* Discoverability glyph after cross-reference links whose target has a
+   summary preview. Added by JS (only on non-touch devices, only when a
+   preview exists for the slug). The `◇` reads as "more here" without
+   shouting; gold ties it to the editorial accent palette. */
+.content a[href^="#summary-"].has-preview::after {
+  content: "◇";
+  color: var(--color-gold);
+  font-size: 0.78em;
+  margin-left: 0.22em;
+  opacity: 0.7;
+  vertical-align: 1px;
+  font-style: normal;
+}
+
+.content a[href^="#summary-"].has-preview:hover::after {
+  opacity: 1;
+  color: var(--color-orange);
+}
+
+#hover-preview .preview-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-orange);
+  margin-bottom: 0.5rem;
+}
+
+#hover-preview .preview-hint {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  margin-left: 0.4em;
+  font-size: 0.95em;
+}
+
+/* When pinned, the close button takes the corner and the hint goes away
+   (the affordance has been used). */
+#hover-preview.pinned .preview-hint {
+  display: none;
+}
+
+/* ------------------------------------------------------------------------
+ * Mobile-responsive (< 720px)
+ * ------------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  #nav-toggle {
+    display: block;
+  }
+
+  #sidenav {
+    transform: translateX(-100%);
+    transition: transform 0.18s ease-out;
+  }
+
+  body.nav-open #sidenav {
+    transform: translateX(0);
+  }
+
+  body.nav-open #nav-overlay {
+    display: block;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 4rem 1.25rem 4rem;
+  }
+
+  body {
+    /* Slightly larger body type on mobile so the H1/body ratio stays
+       balanced when h1 drops to 1.5rem. */
+    font-size: 18px;
+  }
+
+  .content h1 {
+    font-size: 1.5rem;
+  }
+
+  .content h2 {
+    font-size: 1.2rem;
+  }
+
+  .content h3 {
+    font-size: 1.05rem;
+  }
+
+  .doc-dateline {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    flex-wrap: wrap;
+  }
+
+  #hover-preview {
+    /* On mobile, hover previews are flaky (touch devices). Disable. */
+    display: none !important;
+  }
+
+  /* Tables → stacked cards. Each row becomes its own block; each cell
+     gets its column label (data-label) as an inline prefix. Much more
+     readable than horizontal scroll at 375-720px widths. */
+  .content table {
+    display: block;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0;
+    table-layout: auto;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .content thead {
+    /* Hide the header row entirely; column labels live in data-label */
+    display: none;
+  }
+
+  .content tbody {
+    display: block;
+  }
+
+  .content tbody tr {
+    display: block;
+    border: 1px solid var(--color-rule);
+    border-radius: 4px;
+    background: var(--color-bg);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 1px 3px var(--color-shadow);
+  }
+
+  .content tbody td {
+    display: block;
+    width: 100% !important;
+    padding: 0.25rem 0;
+    border: none;
+    font-size: 0.92rem;
+  }
+
+  .content tbody td::before {
+    content: attr(data-label);
+    display: inline-block;
+    min-width: 90px;
+    margin-right: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    vertical-align: top;
+  }
+
+  /* Title cell on mobile — drop the min-width prefix layout and let it
+     flow full-width for the link. */
+  .content tbody td:first-child::before {
+    display: block;
+    margin: 0 0 0.25rem;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Print
+ * ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------
+ * Briefing page — short, sidenavless variant of the main bundle. Inherits
+ * the full palette, typography, masthead + dateline, dark mode, and print
+ * styles; just turns off the sidebar layout offset and centers a single
+ * column. The flat content (H1 → H2 themes → bullets) doesn't need
+ * scrollspy or hover previews; the existing JS is shared and no-ops on
+ * the missing sidenav.
+ * ------------------------------------------------------------------------ */
+
+body.briefing-page .layout {
+  display: block;
+}
+
+body.briefing-page main {
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+  max-width: calc(var(--content-max-width) + 4rem);
+}
+
+body.briefing-page .content-briefing h1 {
+  /* Briefing H1 (the "The Week" title) feels heavier with the same scale
+     as the main bundle. Keep the gold double-rule signature. */
+  font-size: 1.7rem;
+  margin-top: 1rem;
+}
+
+body.briefing-page .content-briefing h2 {
+  /* Section headings get a thin gold rule above so the rhythm of "next
+     theme" is visually obvious without burning vertical space. */
+  border-top: 1px solid var(--color-rule);
+  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+body.briefing-page .content-briefing h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+body.briefing-page .content-briefing ul {
+  /* Slightly tighter than the main bundle's lists — briefings are denser */
+  margin: 0 0 1rem;
+}
+
+body.briefing-page .content-briefing ul ul {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  body.briefing-page main {
+    padding: 4rem 1.25rem 4rem;
+  }
+}
+
+@page {
+  margin: 2cm 2.5cm;
+}
+
+@media print {
+  /* Hide interactive chrome that has no print meaning */
+  #sidenav, #nav-toggle, #nav-overlay, #hover-preview,
+  #reading-progress, #back-to-top, .skip-link,
+  #author-index-search {
+    display: none !important;
+  }
+
+  body {
+    /* Print serifs render best around 10-11pt; lighter background and
+       no shadow keeps the cost-per-page sane on inkjet/laser. */
+    font-size: 10.5pt;
+    line-height: 1.45;
+    background: #fff;
+    color: #000;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 0;
+    max-width: none;
+  }
+
+  main > .content {
+    max-width: none;
+  }
+
+  /* Layout no longer needs flex; main column flows top-to-bottom */
+  .layout {
+    display: block;
+  }
+
+  /* Each H1 starts on a fresh page so section transitions are obvious in
+     a printed binder. Keep headings glued to the paragraph that follows
+     them (otherwise H2/H3 can orphan at the bottom of a page). */
+  .content h1 {
+    page-break-before: always;
+    break-before: page;
+  }
+  .content h1:first-of-type {
+    page-break-before: auto;
+    break-before: auto;
+  }
+  .content h2, .content h3, .content h4 {
+    page-break-after: avoid;
+    break-after: avoid-page;
+  }
+  .content blockquote, .content table, .content figure, .content pre {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Resolve in-doc anchors to their target text on paper — readers can
+     still see what each link points to. External links get their URL
+     printed inline, scoped to http(s) so internal anchors don't get
+     the noisy treatment. */
+  .content a {
+    color: #000;
+    border-bottom: none;
+    text-decoration: none;
+  }
+  .content a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.82em;
+    color: #555;
+    word-break: break-all;
+  }
+  .content a[href^="#"]::after {
+    content: none;
+  }
+  .content a[href^="#summary-"].has-preview::after {
+    /* Discoverability glyph is web-only; on paper there's nothing to hover */
+    content: none;
+  }
+
+  /* Cover image: keep on the first page; tame the print-plate shadow */
+  .cover-block img {
+    box-shadow: none;
+    border: 1px solid #999;
+    max-height: none;
+  }
+
+  /* Tables: keep the navy header but flatten the box-shadow */
+  .content table {
+    box-shadow: none;
+  }
+  .content thead {
+    background: #ddd;
+    color: #000;
+  }
+
+  /* Bring back simple under-the-quote attribution; the marginalia grid
+     loses meaning when there's no narrow viewport to argue with. */
+  .content blockquote {
+    display: block;
+    border-left: 3px solid #999;
+    background: transparent;
+    padding: 0.5rem 1rem;
+  }
+  .content blockquote > p:last-child:not(:only-child) {
+    border-left: none;
+    padding: 0.4rem 0 0 0;
+    color: #444;
+    font-size: 0.92em;
+    font-style: normal;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Dark mode — prefers-color-scheme: dark inverts the palette while
+ * keeping the navy/gold/orange semantic identity. Background goes deep
+ * warm-charcoal; headings/links shift from brand navy to warm cream so
+ * they read on the dark bg; gold and orange brighten slightly for
+ * contrast. The table header stays navy-adjacent so it keeps editorial
+ * weight even on a dark page.
+ * ------------------------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #181a1f;
+    --color-bg-alt: #21242b;
+    --color-text: #e8e5db;
+    --color-text-soft: #b8b5ac;
+    --color-text-muted: #8c8a83;
+    --color-rule: #2f3239;
+    --color-shadow: rgba(0, 0, 0, 0.55);
+    /* Navy → warm cream-gold (so text/headings remain legible on dark bg
+       while preserving the "brand accent" semantic role) */
+    --color-navy: #d2c4a0;
+    --color-navy-soft: #b09f80;
+    --color-gold: #e6c97a;
+    --color-orange: #ea9866;
+    --color-link: #d2c4a0;
+    --color-link-hover: #ea9866;
+    --color-current-nav: #ea9866;
+    --color-current-nav-bg: rgba(234, 152, 102, 0.13);
+  }
+
+  /* Table header keeps a navy-adjacent dark tint so the editorial weight
+     of the navy-on-light scheme survives the inversion. */
+  .content thead {
+    background: #2c3a52;
+    color: var(--color-text);
+  }
+
+  /* Cover image shadow: deeper to seat against dark background */
+  .cover-block img {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Blockquote bg-alt + navy thead background already invert via vars;
+     the gold accent rule on blockquote and table stays. */
+
+  /* Tone down the table inline-style theme accent shadow so it doesn't
+     fight the dark theme — the colored left-border on H2s still reads. */
+}
+</style>
 </head>
-<body>
-<header id="title-block-header">
-<h1 class="title">Crosscurrents Briefing — May 18-24, 2026</h1>
-</header>
-<nav id="TOC" role="doc-toc">
+<body class="briefing-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="reading-progress" aria-hidden="true"></div>
+  <button id="back-to-top" aria-label="Back to top" title="Back to top" hidden><span aria-hidden="true">↑</span></button>
+
+  <div class="layout layout-briefing">
+    <main id="main-content">
+      <div class="content content-briefing">
+        <div class="doc-title">CROSSCURRENTS</div>
+        <div class="doc-dateline">
+          <span class="dateline-mark" aria-hidden="true"></span>
+          <span class="dateline-text">
+            Briefing · Week of May 18-24, 2026
+          </span>
+        </div>
+
+        <p>A briefing for someone who hasn't been following.</p>
+<h2 id="the-anti-weaponization-fund">The &quot;Anti-Weaponization Fund&quot;</h2>
 <ul>
-<li><a href="#the-week-may-18-24-2026-bullet-form"
-id="toc-the-week-may-18-24-2026-bullet-form">The Week: May 18 – 24, 2026
-(Bullet Form)</a>
+<li>President Donald Trump's January lawsuit against the Internal Revenue Service (over leaks of his 2018-2020 tax returns) was settled on May 19, with $1.776 billion routed from the federal Judgment Fund into a new &quot;Anti-Weaponization Fund.&quot;
 <ul>
-<li><a href="#the-anti-weaponization-fund"
-id="toc-the-anti-weaponization-fund">The “Anti-Weaponization
-Fund”</a></li>
-<li><a href="#the-democratic-autopsy"
-id="toc-the-democratic-autopsy">The Democratic Autopsy</a></li>
-<li><a href="#the-beijing-summit-a-week-later"
-id="toc-the-beijing-summit-a-week-later">The Beijing Summit, A Week
-Later</a></li>
-<li><a href="#iran-at-three-months" id="toc-iran-at-three-months">Iran
-at Three Months</a></li>
-<li><a href="#britain-and-the-far-right"
-id="toc-britain-and-the-far-right">Britain and the Far Right</a></li>
-<li><a href="#massie-the-donor-class-and-the-republican-coalition"
-id="toc-massie-the-donor-class-and-the-republican-coalition">Massie, the
-Donor Class, and the Republican Coalition</a></li>
-<li><a href="#ai-becomes-a-local-politics-story"
-id="toc-ai-becomes-a-local-politics-story">AI Becomes a Local Politics
-Story</a></li>
-<li><a href="#smaller-but-important"
-id="toc-smaller-but-important">Smaller But Important</a></li>
-<li><a href="#the-bottom-line" id="toc-the-bottom-line">The Bottom
-Line</a></li>
-</ul></li>
+<li>Trump was the plaintiff; his administration controlled the defendant. Acting Attorney General Todd Blanche — Trump's former personal lawyer — approved the settlement.</li>
+<li>The fund is administered by five officials Trump can fire at will. Recipients and amounts may be kept secret.</li>
+<li>Blanche added a clause permanently barring the U.S. from bringing any future civil or criminal action against Trump, his sons, or the Trump Organization on any pending or potential federal matter.</li>
+<li>The Judgment Fund is a 1956 permanent appropriation Congress created for court-ordered judgments; over the decades it was quietly amended to cover negotiated settlements with no dollar cap.</li>
+<li>The presiding judge had flagged the &quot;a man cannot sue himself&quot; problem and signaled a hearing. The settlement was announced first; the judge then closed the case noting the settlement was not on the record.</li>
 </ul>
-</nav>
-<h1 id="the-week-may-18-24-2026-bullet-form">The Week: May 18 – 24, 2026
-(Bullet Form)</h1>
-<p>A briefing for someone who hasn’t been following.</p>
-<h2 id="the-anti-weaponization-fund">The “Anti-Weaponization Fund”</h2>
+</li>
+<li>Legal commentators across the political range — a former federal prosecutor at <em>National Review</em>, a younger conservative at the same magazine, and a Yale constitutional-law scholar at the centrist <em>Free Press</em> — converged on the same diagnostic.
 <ul>
-<li>President Donald Trump’s January lawsuit against the Internal
-Revenue Service (over leaks of his 2018-2020 tax returns) was settled on
-May 19, with $1.776 billion routed from the federal Judgment Fund into a
-new “Anti-Weaponization Fund.”
-<ul>
-<li>Trump was the plaintiff; his administration controlled the
-defendant. Acting Attorney General Todd Blanche — Trump’s former
-personal lawyer — approved the settlement.</li>
-<li>The fund is administered by five officials Trump can fire at will.
-Recipients and amounts may be kept secret.</li>
-<li>Blanche added a clause permanently barring the U.S. from bringing
-any future civil or criminal action against Trump, his sons, or the
-Trump Organization on any pending or potential federal matter.</li>
-<li>The Judgment Fund is a 1956 permanent appropriation Congress created
-for court-ordered judgments; over the decades it was quietly amended to
-cover negotiated settlements with no dollar cap.</li>
-<li>The presiding judge had flagged the “a man cannot sue himself”
-problem and signaled a hearing. The settlement was announced first; the
-judge then closed the case noting the settlement was not on the
-record.</li>
-</ul></li>
-<li>Legal commentators across the political range — a former federal
-prosecutor at <em>National Review</em>, a younger conservative at the
-same magazine, and a Yale constitutional-law scholar at the centrist
-<em>Free Press</em> — converged on the same diagnostic.
-<ul>
-<li>The settlement is probably technically legal. Nobody obvious has
-standing to sue. The wrongs are political and structural, not
-criminal.</li>
-<li>The Supreme Court’s 2024 ruling on presidential immunity (<em>Trump
-v. United States</em>) makes most such abuses unprosecutable even when
-criminal.</li>
-<li>The remedy available is congressional: impeachment, oversight,
-repealing the Judgment Fund’s structure. Republicans control Congress
-and will do none of these. The constitutional system has a vulnerability
-it was not designed to handle.</li>
-</ul></li>
+<li>The settlement is probably technically legal. Nobody obvious has standing to sue. The wrongs are political and structural, not criminal.</li>
+<li>The Supreme Court's 2024 ruling on presidential immunity (<em>Trump v. United States</em>) makes most such abuses unprosecutable even when criminal.</li>
+<li>The remedy available is congressional: impeachment, oversight, repealing the Judgment Fund's structure. Republicans control Congress and will do none of these. The constitutional system has a vulnerability it was not designed to handle.</li>
+</ul>
+</li>
 <li>Parallel developments the same week:
 <ul>
-<li>The Securities and Exchange Commission rescinded a 54-year-old gag
-rule that had let it publicly trumpet charges it had not proven in court
-while preventing settling defendants from defending themselves outside
-court.</li>
-<li>Independent reporter Ken Klippenstein documented that the
-administration’s claim of having killed 860 “jihadis” in 15 months is
-unverifiable by design. The flagship case — a Trump-announced strike on
-“the second in command of ISIS globally” in Nigeria — involved a
-Nigerian Boko Haram veteran whose global ranking was largely a U.S.
-press talking point, in an operation Nigerian forces actually
-conducted.</li>
-</ul></li>
+<li>The Securities and Exchange Commission rescinded a 54-year-old gag rule that had let it publicly trumpet charges it had not proven in court while preventing settling defendants from defending themselves outside court.</li>
+<li>Independent reporter Ken Klippenstein documented that the administration's claim of having killed 860 &quot;jihadis&quot; in 15 months is unverifiable by design. The flagship case — a Trump-announced strike on &quot;the second in command of ISIS globally&quot; in Nigeria — involved a Nigerian Boko Haram veteran whose global ranking was largely a U.S. press talking point, in an operation Nigerian forces actually conducted.</li>
+</ul>
+</li>
 </ul>
 <h2 id="the-democratic-autopsy">The Democratic Autopsy</h2>
 <ul>
-<li>The Democratic National Committee released its long-delayed autopsy
-of the 2024 presidential election on Thursday, after CNN obtained a
-leaked copy.
+<li>The Democratic National Committee released its long-delayed autopsy of the 2024 presidential election on Thursday, after CNN obtained a leaked copy.
 <ul>
-<li>Commissioned by new DNC chair Ken Martin from a Democratic
-consultant working part-time as a volunteer. Sat on for months while
-donors and progressives speculated about what it contained.</li>
-</ul></li>
-<li>What was in it turned out to be more embarrassing than the
-speculation:
+<li>Commissioned by new DNC chair Ken Martin from a Democratic consultant working part-time as a volunteer. Sat on for months while donors and progressives speculated about what it contained.</li>
+</ul>
+</li>
+<li>What was in it turned out to be more embarrassing than the speculation:
 <ul>
-<li>Zero references to “Israel” or “Gaza” anywhere in 193 pages.</li>
-<li>Opening disclaimer that the DNC could not verify its own assertions;
-hostile internal annotations contesting claims throughout; no conclusion
-section.</li>
-<li>Substantive findings were thin: Harris lost Black male voters
-because she didn’t address economic concerns; working-class voters
-support Democratic economic policies but won’t vote for Democratic
-candidates; Trump’s attack ads on transgender policy were “very
-effective” and nothing could have been done.</li>
-<li>One case-study attributed the North Carolina Democratic
-gubernatorial candidate’s outperformance to “Harris being a bad
-candidate” rather than to his opponent being a former lieutenant
-governor with a documented history of pornographic-message-board
-posts.</li>
-</ul></li>
+<li>Zero references to &quot;Israel&quot; or &quot;Gaza&quot; anywhere in 193 pages.</li>
+<li>Opening disclaimer that the DNC could not verify its own assertions; hostile internal annotations contesting claims throughout; no conclusion section.</li>
+<li>Substantive findings were thin: Harris lost Black male voters because she didn't address economic concerns; working-class voters support Democratic economic policies but won't vote for Democratic candidates; Trump's attack ads on transgender policy were &quot;very effective&quot; and nothing could have been done.</li>
+<li>One case-study attributed the North Carolina Democratic gubernatorial candidate's outperformance to &quot;Harris being a bad candidate&quot; rather than to his opponent being a former lieutenant governor with a documented history of pornographic-message-board posts.</li>
+</ul>
+</li>
 <li>Four writers across the political range read the document.
 <ul>
-<li>A <em>New York Times</em> columnist concluded the autopsy’s
-incompetence is itself the story — Martin turned a screw-up into a
-crisis, the DNC is approaching insolvency under his leadership, and
-replacements are being discussed.</li>
-<li>A <em>Free Press</em> writer (former Democratic fundraiser who voted
-Trump in 2024) argued the autopsy could not be honest about
-race-and-class findings because the progressive base will not permit the
-conversation.</li>
-<li>A <em>National Review</em> essayist noted party autopsies are
-historically useless anyway, but treated this one as a leading indicator
-of organizational decay.</li>
-<li>A separate <em>National Review</em> piece by Noah Rothman documented
-that a February Axios story had cited advocacy groups claiming the DNC
-was suppressing Gaza-cost-Harris findings — and that, when the actual
-report contained no such finding, the activist response was to convert
-the disconfirmation into further confirmation.</li>
-</ul></li>
-<li>Rothman’s empirical case against the Gaza-cost-Harris claim is
-rigorous: down-ballot Democrats with identical Israel positions
-outperformed Harris in the same states; the Michigan “uncommitted”
-Muslim vote was too small statistically; the loss was overdetermined by
-inflation, immigration, Biden’s age, and Harris’s own political-talent
-deficit.
-<ul>
-<li>But Rothman overshoots when he pivots from “Gaza was not the
-marginal cause” to a sweeping claim that the activist left is rising
-through “intimidation, menace, and the selective application of force.”
-That is a much larger argument than the column does the work to
-support.</li>
-</ul></li>
+<li>A <em>New York Times</em> columnist concluded the autopsy's incompetence is itself the story — Martin turned a screw-up into a crisis, the DNC is approaching insolvency under his leadership, and replacements are being discussed.</li>
+<li>A <em>Free Press</em> writer (former Democratic fundraiser who voted Trump in 2024) argued the autopsy could not be honest about race-and-class findings because the progressive base will not permit the conversation.</li>
+<li>A <em>National Review</em> essayist noted party autopsies are historically useless anyway, but treated this one as a leading indicator of organizational decay.</li>
+<li>A separate <em>National Review</em> piece by Noah Rothman documented that a February Axios story had cited advocacy groups claiming the DNC was suppressing Gaza-cost-Harris findings — and that, when the actual report contained no such finding, the activist response was to convert the disconfirmation into further confirmation.</li>
 </ul>
-<h2 id="the-beijing-summit-a-week-later">The Beijing Summit, A Week
-Later</h2>
+</li>
+<li>Rothman's empirical case against the Gaza-cost-Harris claim is rigorous: down-ballot Democrats with identical Israel positions outperformed Harris in the same states; the Michigan &quot;uncommitted&quot; Muslim vote was too small statistically; the loss was overdetermined by inflation, immigration, Biden's age, and Harris's own political-talent deficit.
 <ul>
-<li>Trump’s May 15 meeting with Chinese President Xi Jinping produced
-specific commercial deliverables — two limited market-opening
-agreements, an unconfirmed $17 billion Chinese agricultural pledge, a
-200-aircraft Boeing order — and an effort to claim as a “win” that China
-had agreed the Strait of Hormuz (the narrow waterway through which about
-a fifth of the world’s oil passes) should be demilitarized and un-tolled
-long-term. As one commentator noted, no prior American president would
-have considered making that ask.</li>
+<li>But Rothman overshoots when he pivots from &quot;Gaza was not the marginal cause&quot; to a sweeping claim that the activist left is rising through &quot;intimidation, menace, and the selective application of force.&quot; That is a much larger argument than the column does the work to support.</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-beijing-summit-a-week-later">The Beijing Summit, A Week Later</h2>
+<ul>
+<li>Trump's May 15 meeting with Chinese President Xi Jinping produced specific commercial deliverables — two limited market-opening agreements, an unconfirmed $17 billion Chinese agricultural pledge, a 200-aircraft Boeing order — and an effort to claim as a &quot;win&quot; that China had agreed the Strait of Hormuz (the narrow waterway through which about a fifth of the world's oil passes) should be demilitarized and un-tolled long-term. As one commentator noted, no prior American president would have considered making that ask.</li>
 <li>The optics were unmistakable.
 <ul>
-<li>Trump publicly praised Xi as “great leader,” “really a friend,”
-“from central casting” — phrasings Xi did not reciprocate.</li>
-<li>Trump suggested Taiwan, the self-governing island China claims, was
-negotiable: “we’re supposed to travel 9,500 miles to fight a war.”</li>
-</ul></li>
-<li>Stanford political theorist Francis Fukuyama argued American decline
-since 2016 is largely a product of Trump’s own actions — polarization,
-science funding cuts, the Iran war that drained advanced-weapons stocks,
-and an administration whose officials insist domestic Democrats are a
-bigger threat than China.
+<li>Trump publicly praised Xi as &quot;great leader,&quot; &quot;really a friend,&quot; &quot;from central casting&quot; — phrasings Xi did not reciprocate.</li>
+<li>Trump suggested Taiwan, the self-governing island China claims, was negotiable: &quot;we're supposed to travel 9,500 miles to fight a war.&quot;</li>
+</ul>
+</li>
+<li>Stanford political theorist Francis Fukuyama argued American decline since 2016 is largely a product of Trump's own actions — polarization, science funding cuts, the Iran war that drained advanced-weapons stocks, and an administration whose officials insist domestic Democrats are a bigger threat than China.
 <ul>
-<li>His counterintuitive prediction: Xi may not move on Taiwan while
-Trump is in office, precisely because Trump’s self-inflicted damage is
-doing Xi’s work. The window of danger is the <em>next</em> presidency —
-when a successor trying to reverse course might force Xi to act before
-the reversal succeeds.</li>
-</ul></li>
-<li>Europe was not at the table. A foreign-policy realist writing in
-<em>Hungarian Conservative</em> and a center-left writer at <em>Slow
-Boring</em> (genuinely opposite political coordinates) converged on the
-same diagnostic.
+<li>His counterintuitive prediction: Xi may not move on Taiwan while Trump is in office, precisely because Trump's self-inflicted damage is doing Xi's work. The window of danger is the <em>next</em> presidency — when a successor trying to reverse course might force Xi to act before the reversal succeeds.</li>
+</ul>
+</li>
+<li>Europe was not at the table. A foreign-policy realist writing in <em>Hungarian Conservative</em> and a center-left writer at <em>Slow Boring</em> (genuinely opposite political coordinates) converged on the same diagnostic.
 <ul>
-<li>Trump’s actual China policy is incoherent protectionism: surrenders
-chip-export leverage, alienates allies any serious China strategy would
-require, sabotages domestic energy buildout (Chinese-derivative nuclear
-reactors now being built in China on a 56-month timeline; comparable
-American projects took 15 years), and treats trade deficits as the
-relevant metric.</li>
-<li>The world being assembled around the summit’s empty European chair
-is structural reordering — European interests increasingly set by
-Washington and Beijing without European input.</li>
-</ul></li>
+<li>Trump's actual China policy is incoherent protectionism: surrenders chip-export leverage, alienates allies any serious China strategy would require, sabotages domestic energy buildout (Chinese-derivative nuclear reactors now being built in China on a 56-month timeline; comparable American projects took 15 years), and treats trade deficits as the relevant metric.</li>
+<li>The world being assembled around the summit's empty European chair is structural reordering — European interests increasingly set by Washington and Beijing without European input.</li>
+</ul>
+</li>
 <li>Two non-English-language windows confirmed the read.
 <ul>
-<li>A Moroccan political scientist writing in Arabic for Al Jazeera: the
-post-1945 architecture lacks the Cold War’s stabilizing infrastructure —
-no equivalent of the 1963 Moscow-Washington hotline, no codified rules.
-“The balance of terror has been replaced by the terror of
-imbalance.”</li>
-<li>A retired Tsinghua University sociologist writing in Chinese on a
-banned WeChat account walks Chinese readers through American historian
-Robert Kagan’s argument that an “anti-liberal hidden thread” has run
-through 250 years of American politics. Chinese liberal-academic
-discourse is now reading Trump as the surfacing of a structural feature,
-not as an electoral anomaly.</li>
-<li>China Digital Times translated comments on a now-banned Chinese
-video that mocked Xi by allegory (“a tortoise on a utility pole couldn’t
-have climbed there itself”). A striking sub-thread invoked foreign
-strikes by name — “B2,” “F35,” “bald eagle” — citing Iran and Venezuela
-as precedents. Small slice; should not be over-read; but the first time
-this specific form of anti-Xi sentiment has been visible in
-Chinese-language internet comments.</li>
-</ul></li>
+<li>A Moroccan political scientist writing in Arabic for Al Jazeera: the post-1945 architecture lacks the Cold War's stabilizing infrastructure — no equivalent of the 1963 Moscow-Washington hotline, no codified rules. &quot;The balance of terror has been replaced by the terror of imbalance.&quot;</li>
+<li>A retired Tsinghua University sociologist writing in Chinese on a banned WeChat account walks Chinese readers through American historian Robert Kagan's argument that an &quot;anti-liberal hidden thread&quot; has run through 250 years of American politics. Chinese liberal-academic discourse is now reading Trump as the surfacing of a structural feature, not as an electoral anomaly.</li>
+<li>China Digital Times translated comments on a now-banned Chinese video that mocked Xi by allegory (&quot;a tortoise on a utility pole couldn't have climbed there itself&quot;). A striking sub-thread invoked foreign strikes by name — &quot;B2,&quot; &quot;F35,&quot; &quot;bald eagle&quot; — citing Iran and Venezuela as precedents. Small slice; should not be over-read; but the first time this specific form of anti-Xi sentiment has been visible in Chinese-language internet comments.</li>
+</ul>
+</li>
 </ul>
 <h2 id="iran-at-three-months">Iran at Three Months</h2>
 <ul>
-<li>The Iran war, in its third month after February airstrikes that
-killed Supreme Leader Ayatollah Ali Khamenei, continues to grind. Trump
-announced Saturday that an agreement was “largely negotiated”; by Sunday
-he told negotiators “not to rush.” Reports of imminent agreements have
-been frequent enough across two months that markets and analysts treat
-them cautiously.
+<li>The Iran war, in its third month after February airstrikes that killed Supreme Leader Ayatollah Ali Khamenei, continues to grind. Trump announced Saturday that an agreement was &quot;largely negotiated&quot;; by Sunday he told negotiators &quot;not to rush.&quot; Reports of imminent agreements have been frequent enough across two months that markets and analysts treat them cautiously.
 <ul>
-<li>The deal under discussion: 60-day extension of the existing
-ceasefire, reopening of the Strait of Hormuz, continued negotiations
-over Iran’s nuclear program.</li>
-</ul></li>
+<li>The deal under discussion: 60-day extension of the existing ceasefire, reopening of the Strait of Hormuz, continued negotiations over Iran's nuclear program.</li>
+</ul>
+</li>
 <li>Two pieces of analysis outside the daily news cycle stood out.
 <ul>
-<li>Oxford historian Peter Frankopan traced 200 years of foreign
-interventions in Iran — Russian and British concessions, the 1953
-CIA-backed coup against Prime Minister Mohammad Mosaddegh, the
-installation of the Pahlavi monarchy — to argue the Islamic Republic’s
-posture (asymmetric warfare, sanctions-resistant trade with China and
-Russia, strategic ambiguity on nuclear enrichment) is shaped less by
-clerical doctrine than by the regime’s reading of two centuries of
-evidence about what happens when Iran is weak.</li>
-<li>University of Tennessee political scientist Saeid Golkar dismantled
-a <em>New York Times</em> report that the U.S. and Israel had considered
-installing former Iranian president Mahmoud Ahmadinejad as Khamenei’s
-replacement. Iran is not a leader-centered regime; it is a
-“theocratic-security state” in which the Islamic Revolutionary Guard
-Corps (IRGC) — controlling between a fifth and a third of the economy —
-answers only to the Supreme Leader. Even when Ahmadinejad was president,
-the IRGC sided with Khamenei when the two clashed and placed Ahmadinejad
-under house arrest.</li>
-</ul></li>
-<li>The structural worry: if Washington misread Iran’s regime at the
-start of the war, it is likely to misread what kind of exit is
-achievable at the end.</li>
+<li>Oxford historian Peter Frankopan traced 200 years of foreign interventions in Iran — Russian and British concessions, the 1953 CIA-backed coup against Prime Minister Mohammad Mosaddegh, the installation of the Pahlavi monarchy — to argue the Islamic Republic's posture (asymmetric warfare, sanctions-resistant trade with China and Russia, strategic ambiguity on nuclear enrichment) is shaped less by clerical doctrine than by the regime's reading of two centuries of evidence about what happens when Iran is weak.</li>
+<li>University of Tennessee political scientist Saeid Golkar dismantled a <em>New York Times</em> report that the U.S. and Israel had considered installing former Iranian president Mahmoud Ahmadinejad as Khamenei's replacement. Iran is not a leader-centered regime; it is a &quot;theocratic-security state&quot; in which the Islamic Revolutionary Guard Corps (IRGC) — controlling between a fifth and a third of the economy — answers only to the Supreme Leader. Even when Ahmadinejad was president, the IRGC sided with Khamenei when the two clashed and placed Ahmadinejad under house arrest.</li>
+</ul>
+</li>
+<li>The structural worry: if Washington misread Iran's regime at the start of the war, it is likely to misread what kind of exit is achievable at the end.</li>
 </ul>
 <h2 id="britain-and-the-far-right">Britain and the Far Right</h2>
 <ul>
-<li>The far-right activist Tommy Robinson (born Stephen Yaxley,
-co-founder of the now-defunct English Defence League) organized a “Unite
-the Kingdom” march in central London on May 16. An estimated 60,000
-attended.
+<li>The far-right activist Tommy Robinson (born Stephen Yaxley, co-founder of the now-defunct English Defence League) organized a &quot;Unite the Kingdom&quot; march in central London on May 16. An estimated 60,000 attended.
 <ul>
-<li>Comes two weeks after Nigel Farage’s Reform UK won roughly a third
-of contested council seats in local elections; both Labour and the
-Conservatives posted abysmal numbers.</li>
-</ul></li>
-<li>A reporter for <em>Persuasion</em> spent the day on the ground and
-returned with a more textured account than the wire-service coverage.
+<li>Comes two weeks after Nigel Farage's Reform UK won roughly a third of contested council seats in local elections; both Labour and the Conservatives posted abysmal numbers.</li>
+</ul>
+</li>
+<li>A reporter for <em>Persuasion</em> spent the day on the ground and returned with a more textured account than the wire-service coverage.
 <ul>
-<li>The coalition was heterogeneous: an Iranian couple opposed to Sharia
-law, an Indian student worried about Islam in Britain, a German-Hindu
-business owner with Afghan parents, working-class Brexit voters from the
-Midlands, Christian evangelicals with crucifixes, British Trump
-admirers, Iranian monarchists with images of the late Shah’s son.</li>
-<li>Convergent grievance: radical Islam as civilizational threat,
-anchored to specific recent events — the multi-region “grooming gangs”
-scandals (police slow to investigate organized abuse of young girls by
-men of South Asian Muslim background, for fear of appearing racist), the
-asylum-hotel system that expanded after Brexit, and the 2024 Southport
-stabbings of three young girls (which triggered a week of riots after
-Robinson amplified the false rumor the killer was a Muslim asylum
-seeker).</li>
-</ul></li>
-<li>The reporter granted the underlying concerns are not pure invention
-but argued the crowd inflated them into “a vast narrative of terminal
-decline and elite betrayal.”
+<li>The coalition was heterogeneous: an Iranian couple opposed to Sharia law, an Indian student worried about Islam in Britain, a German-Hindu business owner with Afghan parents, working-class Brexit voters from the Midlands, Christian evangelicals with crucifixes, British Trump admirers, Iranian monarchists with images of the late Shah's son.</li>
+<li>Convergent grievance: radical Islam as civilizational threat, anchored to specific recent events — the multi-region &quot;grooming gangs&quot; scandals (police slow to investigate organized abuse of young girls by men of South Asian Muslim background, for fear of appearing racist), the asylum-hotel system that expanded after Brexit, and the 2024 Southport stabbings of three young girls (which triggered a week of riots after Robinson amplified the false rumor the killer was a Muslim asylum seeker).</li>
+</ul>
+</li>
+<li>The reporter granted the underlying concerns are not pure invention but argued the crowd inflated them into &quot;a vast narrative of terminal decline and elite betrayal.&quot;
 <ul>
-<li>Structural reading: this is not a fading street phenomenon. The
-coalition is broader, more religious, and more electorally serious than
-the previous decade’s Robinson activism suggested. Members will vote
-Reform UK only because no party further right is viable.</li>
-<li>Prime Minister Sir Keir Starmer is widely expected to be replaced
-within the year — not by another Labour figure, but by Farage.</li>
-</ul></li>
+<li>Structural reading: this is not a fading street phenomenon. The coalition is broader, more religious, and more electorally serious than the previous decade's Robinson activism suggested. Members will vote Reform UK only because no party further right is viable.</li>
+<li>Prime Minister Sir Keir Starmer is widely expected to be replaced within the year — not by another Labour figure, but by Farage.</li>
+</ul>
+</li>
 <li>Related European stories.
 <ul>
-<li>Russian (and disputed Ukrainian) large drones have repeatedly
-crossed into Estonian, Latvian, and Lithuanian airspace. NATO shot one
-down over an Estonian lake — the first such action. Vilnius issued an
-official air-raid alert and discovered shelter capacity had run
-out.</li>
-<li>A European-press digest returned a striking cross-orientation
-consensus that the frontline Baltic states have no civil-defense plan,
-no legal authorization to shoot down drones, and no functional means to
-do so.</li>
-<li>German Chancellor Friedrich Merz proposed an “associate EU
-membership” for Ukraine — attendance at EU decision-making bodies
-without voting rights — drawing mixed reactions: symbolic anchor,
-face-saving fiction for what is legally impossible during wartime, or,
-in the Ukrainian press, a “waiting room” imposing EU obligations without
-conferring EU rights.</li>
-</ul></li>
+<li>Russian (and disputed Ukrainian) large drones have repeatedly crossed into Estonian, Latvian, and Lithuanian airspace. NATO shot one down over an Estonian lake — the first such action. Vilnius issued an official air-raid alert and discovered shelter capacity had run out.</li>
+<li>A European-press digest returned a striking cross-orientation consensus that the frontline Baltic states have no civil-defense plan, no legal authorization to shoot down drones, and no functional means to do so.</li>
+<li>German Chancellor Friedrich Merz proposed an &quot;associate EU membership&quot; for Ukraine — attendance at EU decision-making bodies without voting rights — drawing mixed reactions: symbolic anchor, face-saving fiction for what is legally impossible during wartime, or, in the Ukrainian press, a &quot;waiting room&quot; imposing EU obligations without conferring EU rights.</li>
 </ul>
-<h2 id="massie-the-donor-class-and-the-republican-coalition">Massie, the
-Donor Class, and the Republican Coalition</h2>
-<ul>
-<li>Rep. Thomas Massie (R-Ky.) lost his Republican primary on Tuesday to
-Ed Gallrein, a former Navy SEAL personally recruited by Trump.
-<ul>
-<li>The race attracted more than $34 million in outside spending, much
-of it from pro-Israel groups, making it the most expensive House primary
-in U.S. history.</li>
-<li>Massie was a libertarian-leaning Republican who had opposed the Iran
-war, voted against the administration’s signature tax package,
-criticized Israeli Prime Minister Benjamin Netanyahu, and (per Trump’s
-reported view, the breaking point) co-led with Democratic Rep. Ro Khanna
-the bipartisan push to force release of the federal Epstein
-investigation files.</li>
-</ul></li>
-<li>Three writers across three orientations read the outcome
-differently.
-<ul>
-<li>A Heritage Foundation conservative-thought fellow at the
-post-liberal <em>Compact</em> treated the defeat as the GOP imposing
-overdue discipline on a strain of opposition Republicanism obsolete now
-that the party has both a coherent program and a working majority.</li>
-<li>A center-left columnist at <em>UnHerd</em> read it as confirming
-Trump’s total personalist dominance fused with pro-Israel hawkishness as
-the operative ideological filter — with AIPAC and Republican Jewish
-groups defending the GOP as their “last stand” because Democrats under
-50 are turning against Israel.</li>
-<li>Klippenstein focused on the candidate: Gallrein refused debates,
-citing his “classified” SEAL background as the entire warrant for his
-fitness for office. Klippenstein paired him with the Democratic
-“national-security moms” (former CIA officers and military veterans in
-Congress) to argue the national-security state is increasingly its own
-source of political legitimacy, floating above democratic
-accountability.</li>
-</ul></li>
-<li>The three readings agreed the same forces would have produced the
-same outcome against any equally-positioned dissenter. They disagreed on
-whose dysfunction it was — Massie’s, the donors’, or the political form
-itself.</li>
-<li>Three days after losing, Massie told NBC the Republican Party would
-be “very vulnerable” in the 2026 midterms and that he had not ruled out
-a 2028 presidential run.</li>
+</li>
 </ul>
-<h2 id="ai-becomes-a-local-politics-story">AI Becomes a Local Politics
-Story</h2>
+<h2 id="massie-the-donor-class-and-the-republican-coalition">Massie, the Donor Class, and the Republican Coalition</h2>
 <ul>
-<li>Several AI threads converged this week into what looks like a
-tipping point.</li>
+<li>Rep. Thomas Massie (R-Ky.) lost his Republican primary on Tuesday to Ed Gallrein, a former Navy SEAL personally recruited by Trump.
+<ul>
+<li>The race attracted more than $34 million in outside spending, much of it from pro-Israel groups, making it the most expensive House primary in U.S. history.</li>
+<li>Massie was a libertarian-leaning Republican who had opposed the Iran war, voted against the administration's signature tax package, criticized Israeli Prime Minister Benjamin Netanyahu, and (per Trump's reported view, the breaking point) co-led with Democratic Rep. Ro Khanna the bipartisan push to force release of the federal Epstein investigation files.</li>
+</ul>
+</li>
+<li>Three writers across three orientations read the outcome differently.
+<ul>
+<li>A Heritage Foundation conservative-thought fellow at the post-liberal <em>Compact</em> treated the defeat as the GOP imposing overdue discipline on a strain of opposition Republicanism obsolete now that the party has both a coherent program and a working majority.</li>
+<li>A center-left columnist at <em>UnHerd</em> read it as confirming Trump's total personalist dominance fused with pro-Israel hawkishness as the operative ideological filter — with AIPAC and Republican Jewish groups defending the GOP as their &quot;last stand&quot; because Democrats under 50 are turning against Israel.</li>
+<li>Klippenstein focused on the candidate: Gallrein refused debates, citing his &quot;classified&quot; SEAL background as the entire warrant for his fitness for office. Klippenstein paired him with the Democratic &quot;national-security moms&quot; (former CIA officers and military veterans in Congress) to argue the national-security state is increasingly its own source of political legitimacy, floating above democratic accountability.</li>
+</ul>
+</li>
+<li>The three readings agreed the same forces would have produced the same outcome against any equally-positioned dissenter. They disagreed on whose dysfunction it was — Massie's, the donors', or the political form itself.</li>
+<li>Three days after losing, Massie told NBC the Republican Party would be &quot;very vulnerable&quot; in the 2026 midterms and that he had not ruled out a 2028 presidential run.</li>
+</ul>
+<h2 id="ai-becomes-a-local-politics-story">AI Becomes a Local Politics Story</h2>
+<ul>
+<li>Several AI threads converged this week into what looks like a tipping point.</li>
 <li>Polling.
 <ul>
-<li>Only 18% of Generation Z reports feeling hopeful about AI; 47% of
-U.S. voters under 30 rate it “mostly bad,” the highest of any age
-bracket.</li>
-<li>A Stanford survey of 30 countries found Americans had the lowest
-trust of any surveyed population in their leaders’ ability to regulate
-the technology.</li>
-<li>GOP pollster Chris Wilson told <em>Heatmap News</em> that Republican
-opposition to AI data centers has risen more than 300% in some GOP
-regions over six months — reaching levels offshore-wind opposition once
-did.</li>
-<li>A serious 2028 Republican presidential candidate, the analysis
-predicted, will run on a national data-center moratorium.</li>
-</ul></li>
+<li>Only 18% of Generation Z reports feeling hopeful about AI; 47% of U.S. voters under 30 rate it &quot;mostly bad,&quot; the highest of any age bracket.</li>
+<li>A Stanford survey of 30 countries found Americans had the lowest trust of any surveyed population in their leaders' ability to regulate the technology.</li>
+<li>GOP pollster Chris Wilson told <em>Heatmap News</em> that Republican opposition to AI data centers has risen more than 300% in some GOP regions over six months — reaching levels offshore-wind opposition once did.</li>
+<li>A serious 2028 Republican presidential candidate, the analysis predicted, will run on a national data-center moratorium.</li>
+</ul>
+</li>
 <li>Mechanics.
 <ul>
-<li>The Environmental Protection Agency proposed a rule letting
-data-center developers begin construction before securing the
-air-pollution permits historically required.</li>
-<li>Republican elected officials in red states (a South Carolina
-representative, the Texas agriculture commissioner, a North Dakota
-Public Service Commission candidate) have proposed moratoria.</li>
-<li>Right-wing online figures — Tucker Carlson, Marjorie Taylor Greene,
-Matt Walsh — have started attacking data-center water and power
-demands.</li>
-<li>The administration’s counter-frame, embraced by Interior Secretary
-Doug Burgum, is that the backlash is foreign-funded — the same framing
-Republicans tried unsuccessfully against rural solar opposition.</li>
-</ul></li>
+<li>The Environmental Protection Agency proposed a rule letting data-center developers begin construction before securing the air-pollution permits historically required.</li>
+<li>Republican elected officials in red states (a South Carolina representative, the Texas agriculture commissioner, a North Dakota Public Service Commission candidate) have proposed moratoria.</li>
+<li>Right-wing online figures — Tucker Carlson, Marjorie Taylor Greene, Matt Walsh — have started attacking data-center water and power demands.</li>
+<li>The administration's counter-frame, embraced by Interior Secretary Doug Burgum, is that the backlash is foreign-funded — the same framing Republicans tried unsuccessfully against rural solar opposition.</li>
+</ul>
+</li>
 <li>Ideology.
 <ul>
-<li>A libertarian economist at the <em>Free Press</em> argued the
-political energy that ran the 2018-2022 progressive cultural moment has
-migrated onto material targets, and AI infrastructure is the principal
-one.</li>
-<li>The Vatican’s International Theological Commission published its
-first document mentioning artificial general intelligence. Pope Leo XIV
-announced he would address AI governance in an upcoming encyclical (a
-major papal teaching document), with a former Anthropic co-founder
-advising him.</li>
-<li>A <em>Compact</em> essay traced the analogy to human cloning: at the
-turn of the millennium, Vatican documents and domestic laws built a
-durable taboo that has restrained governments for two decades. A similar
-mobilization could be attempted against superintelligence.</li>
-</ul></li>
+<li>A libertarian economist at the <em>Free Press</em> argued the political energy that ran the 2018-2022 progressive cultural moment has migrated onto material targets, and AI infrastructure is the principal one.</li>
+<li>The Vatican's International Theological Commission published its first document mentioning artificial general intelligence. Pope Leo XIV announced he would address AI governance in an upcoming encyclical (a major papal teaching document), with a former Anthropic co-founder advising him.</li>
+<li>A <em>Compact</em> essay traced the analogy to human cloning: at the turn of the millennium, Vatican documents and domestic laws built a durable taboo that has restrained governments for two decades. A similar mobilization could be attempted against superintelligence.</li>
+</ul>
+</li>
 <li>Bipartisan policy actually moving.
 <ul>
-<li>The Senate Judiciary Committee unanimously advanced the GUARD Act,
-co-sponsored by Republican Sen. Josh Hawley and Democratic Sen. Richard
-Blumenthal, requiring age verification for AI companion chatbots.</li>
-<li>Bill emerged in response to several high-profile lawsuits over teen
-suicides allegedly encouraged by chatbots. Closes a loophole inherited
-from a 1998 federal privacy law that effectively required companies to
-have seen a child’s birth certificate before legal liability
-attached.</li>
-</ul></li>
+<li>The Senate Judiciary Committee unanimously advanced the GUARD Act, co-sponsored by Republican Sen. Josh Hawley and Democratic Sen. Richard Blumenthal, requiring age verification for AI companion chatbots.</li>
+<li>Bill emerged in response to several high-profile lawsuits over teen suicides allegedly encouraged by chatbots. Closes a loophole inherited from a 1998 federal privacy law that effectively required companies to have seen a child's birth certificate before legal liability attached.</li>
+</ul>
+</li>
 <li>Local mechanics in one Ohio town.
 <ul>
-<li>In Perry Village (population 1,600), the mayor and council had
-signed nondisclosure agreements with data-center developers before
-constituents had any idea a 230-acre facility using 200,000 gallons of
-water a day was being negotiated.</li>
-<li>When residents gathered enough signatures to force a referendum, the
-council quietly rescinded and re-enacted the rezoning under emergency
-provisions designed to defeat the petition.</li>
-<li>Ohio’s state legislature is now considering a bill that would bar
-local governments from passing data-center restrictions at all.</li>
-<li>Five years from now, the most consequential political effect of the
-AI boom may be the local-democracy fight it provoked.</li>
-</ul></li>
+<li>In Perry Village (population 1,600), the mayor and council had signed nondisclosure agreements with data-center developers before constituents had any idea a 230-acre facility using 200,000 gallons of water a day was being negotiated.</li>
+<li>When residents gathered enough signatures to force a referendum, the council quietly rescinded and re-enacted the rezoning under emergency provisions designed to defeat the petition.</li>
+<li>Ohio's state legislature is now considering a bill that would bar local governments from passing data-center restrictions at all.</li>
+<li>Five years from now, the most consequential political effect of the AI boom may be the local-democracy fight it provoked.</li>
+</ul>
+</li>
 </ul>
 <h2 id="smaller-but-important">Smaller But Important</h2>
 <ul>
-<li>Cuba: the administration’s pressure campaign on Havana — naval
-blockade, sanctions on the Cuban military’s commercial conglomerate, a
-secret May 14 visit by CIA director John Ratcliffe — combined with the
-Justice Department’s superseding criminal indictment of 94-year-old Raúl
-Castro for the 1996 Cuban shootdown of two unarmed civilian Cessna
-aircraft operated by the Miami-based group Brothers to the Rescue.
+<li>Cuba: the administration's pressure campaign on Havana — naval blockade, sanctions on the Cuban military's commercial conglomerate, a secret May 14 visit by CIA director John Ratcliffe — combined with the Justice Department's superseding criminal indictment of 94-year-old Raúl Castro for the 1996 Cuban shootdown of two unarmed civilian Cessna aircraft operated by the Miami-based group Brothers to the Rescue.
 <ul>
-<li>Shoot-down killed four men over international waters; cockpit
-recordings captured the Cuban pilots celebrating with “¡Patria o
-Muerte!”</li>
-<li>Castro will almost certainly never enter a Miami courtroom. The
-<em>Free Press</em> writer argued the indictment has independent value
-as a public, durable legal account that corrects a Netflix dramatization
-that recast the Cuban spy ring as patriotic underdogs.</li>
-</ul></li>
-<li>Texas Senate runoff scheduled May 26 now widely seen as in play for
-the Democratic nominee, James Talarico, a state legislator and
-Presbyterian seminarian.
+<li>Shoot-down killed four men over international waters; cockpit recordings captured the Cuban pilots celebrating with &quot;¡Patria o Muerte!&quot;</li>
+<li>Castro will almost certainly never enter a Miami courtroom. The <em>Free Press</em> writer argued the indictment has independent value as a public, durable legal account that corrects a Netflix dramatization that recast the Cuban spy ring as patriotic underdogs.</li>
+</ul>
+</li>
+<li>Texas Senate runoff scheduled May 26 now widely seen as in play for the Democratic nominee, James Talarico, a state legislator and Presbyterian seminarian.
 <ul>
-<li>Forecaster Nate Silver’s analysts argued the chain of events was
-self-inflicted: Trump’s initial co-endorsement of all three Republican
-primary candidates defeated the informational purpose of an endorsement;
-he waited until the final week to single-endorse Attorney General Ken
-Paxton, after both campaigns had burned more than $20 million in primary
-ad spending; Paxton (scandal-plagued, in the model of Georgia’s failed
-2022 Senate candidate Herschel Walker) is the weaker general-election
-option.</li>
+<li>Forecaster Nate Silver's analysts argued the chain of events was self-inflicted: Trump's initial co-endorsement of all three Republican primary candidates defeated the informational purpose of an endorsement; he waited until the final week to single-endorse Attorney General Ken Paxton, after both campaigns had burned more than $20 million in primary ad spending; Paxton (scandal-plagued, in the model of Georgia's failed 2022 Senate candidate Herschel Walker) is the weaker general-election option.</li>
 <li>Texas has not elected a Democratic senator since 1988.</li>
-</ul></li>
-<li>Ezra Klein interviewed political scientist Lee Drutman on the
-gerrymandering arms race underway across roughly a dozen states after
-recent Supreme Court rulings cleared both partisan gerrymanders and most
-race-based districts.
+</ul>
+</li>
+<li>Ezra Klein interviewed political scientist Lee Drutman on the gerrymandering arms race underway across roughly a dozen states after recent Supreme Court rulings cleared both partisan gerrymanders and most race-based districts.
 <ul>
-<li>Drutman’s argument: the underlying cause is the structure of
-single-member winner-take-all districts. The fix is open-list
-proportional representation in multi-member districts — a 40% Republican
-vote share in a state yields roughly 40% of that state’s House seats,
-gerrymandering becomes mechanically inert, and new parties become viable
-at lower thresholds.</li>
-<li>Politically far from feasible. But the only structural alternative
-now on the table to indefinite escalation.</li>
-</ul></li>
+<li>Drutman's argument: the underlying cause is the structure of single-member winner-take-all districts. The fix is open-list proportional representation in multi-member districts — a 40% Republican vote share in a state yields roughly 40% of that state's House seats, gerrymandering becomes mechanically inert, and new parties become viable at lower thresholds.</li>
+<li>Politically far from feasible. But the only structural alternative now on the table to indefinite escalation.</li>
+</ul>
+</li>
 </ul>
 <h2 id="the-bottom-line">The Bottom Line</h2>
 <ul>
-<li>The threads share a shape. The “Anti-Weaponization Fund,” the DNC
-autopsy’s incompetence, the Beijing summit’s quiet European exclusion,
-the Massie defeat, the AI infrastructure backlash spreading from local
-zoning fights to presidential-primary positioning — all are stories
-about institutional capacity decaying faster than the public debate has
-registered.</li>
-<li>The constitutional system has discovered it cannot easily defend
-itself against a settlement of the federal government’s lawsuit against
-itself.</li>
-<li>The opposition party has discovered it cannot conduct a basic
-post-election review without exposing how thinly it is staffed.</li>
-<li>The post-1945 multilateral architecture has discovered it can be
-replaced by bilateral deals nobody in Europe is at the table for.</li>
-<li>The Republican coalition has discovered the donor class can still
-buy a primary but no longer commands the rising generation of its own
-voters.</li>
-<li>The AI industry has discovered its political license to operate is
-being revoked one rural Ohio county at a time.</li>
-<li>None of these are settled stories. What is striking, week to week,
-is how often credible analysts from genuinely different political
-starting points reach the same diagnostic before disagreeing about what
-to do about it.</li>
-<li>That convergence is, on its own, a reading of the moment: the
-surface-level partisan fights are increasingly the noise, and the
-structural drift underneath them is increasingly the signal.</li>
+<li>The threads share a shape. The &quot;Anti-Weaponization Fund,&quot; the DNC autopsy's incompetence, the Beijing summit's quiet European exclusion, the Massie defeat, the AI infrastructure backlash spreading from local zoning fights to presidential-primary positioning — all are stories about institutional capacity decaying faster than the public debate has registered.</li>
+<li>The constitutional system has discovered it cannot easily defend itself against a settlement of the federal government's lawsuit against itself.</li>
+<li>The opposition party has discovered it cannot conduct a basic post-election review without exposing how thinly it is staffed.</li>
+<li>The post-1945 multilateral architecture has discovered it can be replaced by bilateral deals nobody in Europe is at the table for.</li>
+<li>The Republican coalition has discovered the donor class can still buy a primary but no longer commands the rising generation of its own voters.</li>
+<li>The AI industry has discovered its political license to operate is being revoked one rural Ohio county at a time.</li>
+<li>None of these are settled stories. What is striking, week to week, is how often credible analysts from genuinely different political starting points reach the same diagnostic before disagreeing about what to do about it.</li>
+<li>That convergence is, on its own, a reading of the moment: the surface-level partisan fights are increasingly the noise, and the structural drift underneath them is increasingly the signal.</li>
 </ul>
+
+      </div>
+    </main>
+  </div>
+
+  <script>/* Crosscurrents bundle JavaScript
+ * Vanilla JS — no framework.
+ * Three behaviors: scrollspy nav highlighting, hover-preview tooltips for
+ * Article Summaries links, mobile hamburger drawer toggle. */
+
+(function () {
+  'use strict';
+
+  // ----------------------------------------------------------------------
+  // Scrollspy: highlight the current section in the sidebar nav
+  // ----------------------------------------------------------------------
+
+  function setupScrollspy() {
+    var headings = document.querySelectorAll('.content h1[id], .content h2[id], .content h3[id]');
+    if (!headings.length) return;
+
+    var navLinks = {};
+    document.querySelectorAll('#sidenav a[href^="#"]').forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      if (id) navLinks[id] = a;
+    });
+
+    var nav = document.getElementById('sidenav');
+    // Cache nav's rect once; refresh on resize. Avoids per-tick layout reads
+    // during scroll (every IntersectionObserver fire was calling
+    // getBoundingClientRect inside highlight() before).
+    var navRect = nav ? nav.getBoundingClientRect() : null;
+    if (nav) {
+      window.addEventListener('resize', function () {
+        navRect = nav.getBoundingClientRect();
+      });
+    }
+    // Track recent user interaction with the sidebar — if the reader just
+    // scrolled the nav by hand we don't want a scrollIntoView yanking it
+    // back. 1000ms cooldown is the design-review's recommendation.
+    var lastUserNavScroll = 0;
+    if (nav) {
+      nav.addEventListener('scroll', function () {
+        lastUserNavScroll = Date.now();
+      }, {passive: true});
+    }
+
+    var currentId = null;
+    function highlight(id) {
+      if (id === currentId) return;
+      if (currentId && navLinks[currentId]) {
+        navLinks[currentId].classList.remove('current');
+      }
+      if (id && navLinks[id]) {
+        navLinks[id].classList.add('current');
+        // Auto-expand parent <details> so the highlighted entry is visible
+        var detail = navLinks[id].closest('details');
+        while (detail) {
+          detail.open = true;
+          detail = detail.parentElement && detail.parentElement.closest('details');
+        }
+        // Scroll the nav so the highlighted entry is in view (if off-screen).
+        // Skipped when the reader scrolled the sidebar in the last 1s — keeps
+        // the nav from feeling "alive" when the user is browsing it directly.
+        if (nav && navRect && (Date.now() - lastUserNavScroll) > 1000) {
+          var rect = navLinks[id].getBoundingClientRect();
+          if (rect.top < navRect.top || rect.bottom > navRect.bottom) {
+            navLinks[id].scrollIntoView({block: 'center', behavior: 'auto'});
+          }
+        }
+      }
+      currentId = id;
+    }
+
+    // Throttle highlight via rAF + a 150ms floor: IntersectionObserver can
+    // fire several times per scroll tick on long pages with dense headings,
+    // and the recalc + classList churn shows up on low-end Android.
+    var pendingId = null;
+    var rafScheduled = false;
+    var lastHighlightAt = 0;
+    function scheduleHighlight(id) {
+      pendingId = id;
+      if (rafScheduled) return;
+      rafScheduled = true;
+      var delay = Math.max(0, 150 - (Date.now() - lastHighlightAt));
+      setTimeout(function () {
+        requestAnimationFrame(function () {
+          rafScheduled = false;
+          lastHighlightAt = Date.now();
+          if (pendingId) highlight(pendingId);
+        });
+      }, delay);
+    }
+
+    // Use IntersectionObserver: trigger when a heading crosses the top 1/3 of viewport
+    var observer = new IntersectionObserver(function (entries) {
+      // Find the most-recently-passed heading
+      var visibleEntries = entries.filter(function (e) { return e.isIntersecting; });
+      if (visibleEntries.length === 0) return;
+      // Pick the heading with the smallest boundingClientRect.top that's > 0 (closest to top edge)
+      var sorted = visibleEntries.sort(function (a, b) {
+        return a.boundingClientRect.top - b.boundingClientRect.top;
+      });
+      scheduleHighlight(sorted[0].target.id);
+    }, {
+      rootMargin: '0px 0px -66% 0px',
+      threshold: [0, 1]
+    });
+
+    headings.forEach(function (h) { observer.observe(h); });
+
+    // Initial highlight: pick first heading
+    if (headings[0]) highlight(headings[0].id);
+  }
+
+  // ----------------------------------------------------------------------
+  // Mobile hamburger drawer
+  // ----------------------------------------------------------------------
+
+  function setupHamburger() {
+    var toggle = document.getElementById('nav-toggle');
+    var overlay = document.getElementById('nav-overlay');
+    var nav = document.getElementById('sidenav');
+    if (!toggle) return;
+
+    var savedFocus = null;
+
+    function close() {
+      document.body.classList.remove('nav-open');
+      if (savedFocus && typeof savedFocus.focus === 'function') {
+        try { savedFocus.focus(); } catch (e) {}
+      }
+      savedFocus = null;
+    }
+
+    function open() {
+      // Save where focus was so we can restore it on close
+      savedFocus = document.activeElement;
+      document.body.classList.add('nav-open');
+      // Move focus into the drawer for keyboard users
+      if (nav) {
+        var firstLink = nav.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+        if (firstLink) firstLink.focus();
+      }
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (document.body.classList.contains('nav-open')) {
+        close();
+      } else {
+        open();
+      }
+    });
+
+    if (overlay) overlay.addEventListener('click', close);
+
+    // Close drawer when a nav link is clicked
+    document.querySelectorAll('#sidenav a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth <= 720) close();
+      });
+    });
+
+    // ESC closes drawer
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+
+    // Focus trap: while drawer is open, Tab cycles within it
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      if (!document.body.classList.contains('nav-open')) return;
+      if (!nav) return;
+      var focusable = nav.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Hover-preview tooltips for Article Summaries links
+  // ----------------------------------------------------------------------
+  // Preview text is loaded once from a JSON island (#summary-previews)
+  // and looked up by anchor slug at hover time — much smaller bundle
+  // than repeating each preview inline as data-preview attributes.
+
+  function setupHoverPreviews() {
+    var preview = document.getElementById('hover-preview');
+    if (!preview) return;
+    if ('ontouchstart' in window) return; // touch devices — skip hover behavior
+
+    var island = document.getElementById('summary-previews');
+    var previews = {};
+    if (island) {
+      try { previews = JSON.parse(island.textContent || '{}'); }
+      catch (e) { return; }
+    }
+    if (!Object.keys(previews).length) return;
+
+    // Discoverability: mark every cross-reference link whose target has a
+    // preview so CSS can drop a small `◇` glyph after it. Skips back-links
+    // (already styled inside `<em>`) so they don't get a double-marker.
+    document.querySelectorAll('a[href^="#summary-"]').forEach(function (a) {
+      if (a.closest('em')) return;
+      var href = a.getAttribute('href') || '';
+      var slug = href.slice('#summary-'.length);
+      if (previews[slug]) a.classList.add('has-preview');
+    });
+
+    function getPreviewForLink(a) {
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('#summary-') !== 0) return null;
+      return previews[href.slice('#summary-'.length)] || null;
+    }
+
+    var showTimer = null;
+    var hideTimer = null;
+
+    function positionAt(x, y) {
+      var rect = preview.getBoundingClientRect();
+      var pw = rect.width, ph = rect.height;
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var left = x + 18, top = y + 18;
+      if (left + pw + 12 > vw) left = x - pw - 18;
+      if (top + ph + 12 > vh) top = vh - ph - 12;
+      if (top < 8) top = 8;
+      if (left < 8) left = 8;
+      preview.style.left = left + 'px';
+      preview.style.top = top + 'px';
+    }
+
+    function showPreview(text, x, y) {
+      if (preview.classList.contains('pinned')) return;
+      preview.innerHTML =
+        '<span class="preview-label">Summary preview' +
+        ' <span class="preview-hint">⇧+click to pin</span></span>' + text;
+      preview.style.display = 'block';
+      preview.setAttribute('aria-hidden', 'false');
+      preview.setAttribute('aria-live', 'polite');
+      positionAt(x, y);
+      // Defer the `.visible` class to next frame so CSS opacity transition
+      // fires (otherwise it would paint at final opacity immediately).
+      requestAnimationFrame(function () {
+        preview.classList.add('visible');
+      });
+    }
+
+    function hidePreview() {
+      if (preview.classList.contains('pinned')) return;
+      preview.classList.remove('visible');
+      preview.setAttribute('aria-hidden', 'true');
+      // Wait for fade-out before unmounting so the transition is visible.
+      setTimeout(function () {
+        if (!preview.classList.contains('visible')) {
+          preview.style.display = 'none';
+        }
+      }, 120);
+    }
+
+    function pinPreview() {
+      preview.classList.add('pinned');
+      // Inject a close button (idempotent — only added once per pin).
+      if (!preview.querySelector('.preview-close')) {
+        var btn = document.createElement('button');
+        btn.className = 'preview-close';
+        btn.setAttribute('aria-label', 'Close pinned preview');
+        btn.innerHTML = '&times;';
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          unpinPreview();
+        });
+        preview.appendChild(btn);
+      }
+    }
+
+    function unpinPreview() {
+      preview.classList.remove('pinned');
+      var btn = preview.querySelector('.preview-close');
+      if (btn) btn.remove();
+      hidePreview();
+    }
+
+    var content = document.querySelector('.content');
+    if (!content) return;
+
+    content.addEventListener('mouseover', function (e) {
+      if (preview.classList.contains('pinned')) return;
+      var a = e.target.closest('a[href^="#summary-"]');
+      if (!a) return;
+      var text = getPreviewForLink(a);
+      if (!text) return;
+      clearTimeout(hideTimer);
+      clearTimeout(showTimer);
+      var x = e.clientX, y = e.clientY;
+      showTimer = setTimeout(function () { showPreview(text, x, y); }, 200);
+    });
+
+    content.addEventListener('mousemove', function (e) {
+      if (preview.classList.contains('pinned')) return;
+      if (preview.style.display !== 'block') return;
+      var a = e.target.closest('a[href^="#summary-"]');
+      if (!a) return;
+      positionAt(e.clientX, e.clientY);
+    });
+
+    content.addEventListener('mouseout', function (e) {
+      if (preview.classList.contains('pinned')) return;
+      var a = e.target.closest('a[href^="#summary-"]');
+      if (!a) return;
+      clearTimeout(showTimer);
+      hideTimer = setTimeout(hidePreview, 80);
+    });
+
+    // Shift+click pins the preview: prevents anchor navigation, freezes the
+    // tooltip at the cursor, makes it selectable, and shows a close button.
+    content.addEventListener('click', function (e) {
+      if (!e.shiftKey) return;
+      var a = e.target.closest('a[href^="#summary-"]');
+      if (!a || a.closest('em')) return;
+      var text = getPreviewForLink(a);
+      if (!text) return;
+      e.preventDefault();
+      clearTimeout(hideTimer);
+      clearTimeout(showTimer);
+      // Force a fresh render (not blocked by an existing `pinned` state)
+      preview.classList.remove('pinned');
+      showPreview(text, e.clientX, e.clientY);
+      pinPreview();
+    });
+
+    // ESC closes a pinned preview.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && preview.classList.contains('pinned')) {
+        unpinPreview();
+      }
+    });
+
+    // Click outside a pinned preview closes it.
+    document.addEventListener('click', function (e) {
+      if (!preview.classList.contains('pinned')) return;
+      if (preview.contains(e.target)) return;
+      // Don't unpin from the same shift-click that just pinned it.
+      if (e.shiftKey && e.target.closest('a[href^="#summary-"]')) return;
+      unpinPreview();
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Reading progress bar — gold strip across the top of the viewport
+  // ----------------------------------------------------------------------
+
+  function setupReadingProgress() {
+    var bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    function update() {
+      var doc = document.documentElement;
+      var maxScroll = doc.scrollHeight - window.innerHeight;
+      var pct = maxScroll > 0 ? Math.min(1, window.scrollY / maxScroll) : 0;
+      bar.style.width = (pct * 100).toFixed(2) + '%';
+    }
+    window.addEventListener('scroll', update, {passive: true});
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  // ----------------------------------------------------------------------
+  // Per-section reading time — appends "~N min · M words" to each H1
+  // ----------------------------------------------------------------------
+
+  function setupReadingTime() {
+    var WORDS_PER_MIN = 220;
+    var headings = document.querySelectorAll('.content h1[data-words]');
+    headings.forEach(function (h1) {
+      var n = parseInt(h1.dataset.words, 10);
+      if (!n || n < 50) return;  // skip near-empty sections
+      var minutes = Math.max(1, Math.round(n / WORDS_PER_MIN));
+      var span = document.createElement('span');
+      span.className = 'reading-time';
+      span.textContent = '~' + minutes + ' min · ' + n.toLocaleString() + ' words';
+      h1.appendChild(span);
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Floating "↑ Top" button — fades in after a long scroll
+  // ----------------------------------------------------------------------
+
+  function setupBackToTop() {
+    var btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    btn.removeAttribute('hidden');
+    function update() {
+      if (window.scrollY > 1200) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }
+    btn.addEventListener('click', function () {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      if (window.innerWidth <= 720) document.body.classList.add('nav-open');
+    });
+    window.addEventListener('scroll', update, {passive: true});
+    update();
+  }
+
+  // ----------------------------------------------------------------------
+  // Author Index search — inserts a search input above the index table
+  // and live-filters rows by author / title / publication / summary text
+  // ----------------------------------------------------------------------
+
+  function setupAuthorIndexSearch() {
+    var heading = document.getElementById('index-by-author');
+    if (!heading) return;
+    // Find the first table sibling after the heading
+    var table = heading.nextElementSibling;
+    while (table && table.tagName !== 'TABLE') table = table.nextElementSibling;
+    if (!table) return;
+
+    var input = document.createElement('input');
+    input.type = 'search';
+    input.id = 'author-index-search';
+    input.placeholder = 'Find author, title, or publication…';
+    input.autocomplete = 'off';
+    input.setAttribute('aria-label', 'Filter author index');
+    table.parentNode.insertBefore(input, table);
+
+    var rows = Array.from(table.querySelectorAll('tbody tr'));
+    // Precompute lowercase text for each row
+    var rowText = rows.map(function (r) { return r.textContent.toLowerCase(); });
+
+    input.addEventListener('input', function () {
+      var q = input.value.toLowerCase().trim();
+      rows.forEach(function (row, i) {
+        row.style.display = (!q || rowText[i].indexOf(q) !== -1) ? '' : 'none';
+      });
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Nav-link clicks inside <summary> should NOT toggle the parent <details>
+  // ----------------------------------------------------------------------
+
+  function setupNavLinkClicks() {
+    document.querySelectorAll('#sidenav summary a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        // Let the anchor navigate; suppress the details-toggle bubble.
+        e.stopPropagation();
+      });
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Back-to-TOC link behavior
+  // ----------------------------------------------------------------------
+  // The `<a id="TOC">` anchor lives in the sidebar. On desktop the sidebar
+  // is always visible so a raw anchor-jump to it does nothing visible; on
+  // mobile the sidebar is hidden behind a hamburger so the jump also does
+  // nothing. Intercept `#TOC` clicks to scroll the page to the top AND
+  // open the mobile drawer.
+
+  function setupTocLinks() {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href="#TOC"]');
+      if (!a) return;
+      e.preventDefault();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      if (window.innerWidth <= 720) {
+        document.body.classList.add('nav-open');
+      }
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Boot
+  // ----------------------------------------------------------------------
+
+  function init() {
+    setupScrollspy();
+    setupHamburger();
+    setupHoverPreviews();
+    setupTocLinks();
+    setupReadingProgress();
+    setupReadingTime();
+    setupBackToTop();
+    setupAuthorIndexSearch();
+    setupNavLinkClicks();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>
