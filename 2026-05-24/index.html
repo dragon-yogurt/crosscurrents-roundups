@@ -337,6 +337,28 @@ main > .content {
   margin-top: 1.5rem;
 }
 
+/* H5/H6 mostly appear after `_sanitize_for_pandoc` demotes article-body
+   H1/H2 headings by 3 levels to keep them subordinate to the bundle's
+   `### Title` parent. Without explicit sizes, browsers default to ~14px /
+   ~11px, which reads "much smaller than the surrounding text." Match
+   them to H4's size so a body H1 inside a long article still reads as a
+   sub-section heading rather than a footnote. Slightly lighter weight
+   on H6 to retain *some* visual hierarchy below H5. */
+.content h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  margin-top: 1.5rem;
+}
+
+.content h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
 .content p {
   margin: 0 0 1.05rem;
 }
