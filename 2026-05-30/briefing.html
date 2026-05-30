@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crosscurrents Briefing — May 25-30, 2026</title>
+  <meta name="generator" content="Crosscurrents briefing bundler (markdown-it-py + Jinja2)">
+  <style>/* Crosscurrents bundle stylesheet
+ * Mobile-first, project-controlled (no framework).
+ * Palette: navy + gold + orange on off-white, matching the cover-art vibe. */
+
+:root {
+  --color-bg: #fafaf6;
+  --color-bg-alt: #f3f1e8;
+  --color-text: #1a1a1a;
+  --color-text-soft: #5a5a5a;
+  --color-text-muted: #666;
+  --color-navy: #1a3a5c;
+  --color-navy-soft: #3a5b80;
+  --color-gold: #c4953a;
+  --color-orange: #d97b3e;
+  --color-rule: #d8d5c8;
+  --color-link: #1a3a5c;
+  --color-link-hover: #d97b3e;
+  --color-current-nav: #d97b3e;
+  --color-current-nav-bg: rgba(217, 123, 62, 0.08);
+  --color-shadow: rgba(26, 58, 92, 0.15);
+
+  --font-serif: "Charter", "Source Serif Pro", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Consolas", monospace;
+  /* Display: editorial-feeling system serifs for masthead + Notable Quotes.
+     Falls through to whichever is installed on each OS — Big Caslon and
+     Hoefler Text live on macOS, Cambria/Constantia on Windows, Liberation
+     Serif on Linux, with Palatino/Georgia as universal fallbacks. Has more
+     personality than the system-ui sans the masthead used before. */
+  --font-display: "Big Caslon", "Hoefler Text", "Caslon Pro", "Adobe Caslon Pro",
+                  "Cambria", "Constantia", "Palatino Linotype", Palatino,
+                  "Iowan Old Style", "Liberation Serif", Georgia, serif;
+
+  --sidebar-width: 300px;
+  --content-max-width: 720px;
+  --breakpoint-mobile: 720px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ------------------------------------------------------------------------
+ * Layout: sidebar + main column
+ * ------------------------------------------------------------------------ */
+
+.layout {
+  display: flex;
+}
+
+#sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--color-bg-alt);
+  border-right: 1px solid var(--color-rule);
+  padding: 1.5rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.4;
+  z-index: 50;
+}
+
+main {
+  margin-left: var(--sidebar-width);
+  padding: 2.5rem 3rem 6rem;
+  max-width: calc(var(--sidebar-width) + var(--content-max-width) + 6rem);
+  min-height: 100vh;
+}
+
+main > .content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------------------------
+ * Hamburger toggle (mobile only)
+ * ------------------------------------------------------------------------ */
+
+#nav-toggle {
+  display: none;
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;  /* moved from left to avoid masthead collision */
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-rule);
+  background: var(--color-bg);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--color-navy);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+#nav-toggle:hover {
+  background: var(--color-bg-alt);
+}
+
+#nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 40;
+}
+
+/* ------------------------------------------------------------------------
+ * Sidebar nav typography
+ * ------------------------------------------------------------------------ */
+
+#sidenav .nav-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-navy);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+#sidenav .nav-title em {
+  display: block;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  margin-top: 0.25rem;
+}
+
+#sidenav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidenav li {
+  margin: 0;
+}
+
+#sidenav a {
+  display: block;
+  padding: 5px 8px 5px 10px;
+  color: var(--color-text-soft);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  /* Only color animates on hover; border-color + background only change on
+     `.current` (scrollspy), which is a discrete state change without
+     transition need. Trimmed from 3 properties to 1 — keeps low-end
+     Android from stuttering on the initial paint with N=hundreds nodes. */
+  transition: color 0.12s;
+}
+
+#sidenav a:hover {
+  color: var(--color-orange);
+  background: var(--color-current-nav-bg);
+}
+
+#sidenav a.current {
+  color: var(--color-current-nav);
+  border-left-color: var(--color-current-nav);
+  background: var(--color-current-nav-bg);
+  font-weight: 600;
+}
+
+#sidenav .nav-l1 {
+  font-weight: 600;
+  color: var(--color-navy);
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 14px;
+}
+
+#sidenav .nav-l2 {
+  padding-left: 22px;
+  font-size: 13px;
+}
+
+#sidenav .nav-l3 {
+  padding-left: 34px;
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+
+#sidenav .nav-l4 {
+  padding-left: 46px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+#sidenav .nav-l5 {
+  padding-left: 58px;
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+}
+
+#sidenav .nav-l6 {
+  padding-left: 70px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+#sidenav details {
+  margin: 2px 0;
+}
+
+#sidenav summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#sidenav summary .chevron {
+  flex: 0 0 14px;
+  margin-right: 4px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  transition: transform 0.15s;
+}
+
+#sidenav details[open] > summary .chevron {
+  transform: rotate(90deg);
+}
+
+/* Leaf items (no children) get a phantom chevron-spacer so they align
+   horizontally with sibling <details> entries — otherwise items with
+   chevrons appear shifted right and look like children of the leaf above. */
+#sidenav .nav-leaf {
+  display: flex;
+  align-items: center;
+}
+
+#sidenav .chevron-spacer {
+  flex: 0 0 14px;
+  margin-right: 4px;
+}
+
+/* Theme dots — small color-coded indicators next to theme entries in the
+   nav (and matching left-border on body H2s, applied inline via builder).
+   Same theme name → same color across all sections it appears in
+   (Themes, Article Summaries, Full Articles) and across weeks. */
+#sidenav .theme-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+  vertical-align: 1px;
+}
+
+#sidenav summary .nav-label {
+  flex: 1 1 auto;
+}
+
+#sidenav summary a {
+  flex: 1 1 auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#sidenav .nav-sublist {
+  margin: 2px 0 6px;
+}
+
+/* ------------------------------------------------------------------------
+ * Article content typography
+ * ------------------------------------------------------------------------ */
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-navy);
+  line-height: 1.25;
+  margin: 2.5rem 0 1rem;
+  scroll-margin-top: 1rem;
+}
+
+.content h1 {
+  font-size: 1.85rem;
+  border-bottom: 3px double var(--color-gold);
+  padding-bottom: 0.3rem;
+  margin-top: 3.5rem;
+}
+
+.content h1:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.content h2 {
+  font-size: 1.4rem;
+  margin-top: 2.5rem;
+}
+
+.content h3 {
+  font-size: 1.15rem;
+  color: var(--color-navy-soft);
+  font-weight: 600;
+  margin-top: 1.75rem;
+}
+
+.content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  margin-top: 1.5rem;
+}
+
+/* H5/H6 mostly appear after `_sanitize_for_pandoc` demotes article-body
+   H1/H2 headings by 3 levels to keep them subordinate to the bundle's
+   `### Title` parent. Without explicit sizes, browsers default to ~14px /
+   ~11px, which reads "much smaller than the surrounding text." Match
+   them to H4's size so a body H1 inside a long article still reads as a
+   sub-section heading rather than a footnote. Slightly lighter weight
+   on H6 to retain *some* visual hierarchy below H5. */
+.content h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  margin-top: 1.5rem;
+}
+
+.content h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
+.content p {
+  margin: 0 0 1.05rem;
+}
+
+.content ul, .content ol {
+  margin: 0 0 1.2rem;
+  padding-left: 1.5rem;
+}
+
+.content li {
+  margin-bottom: 0.4rem;
+}
+
+.content blockquote {
+  position: relative;
+  margin: 1.25rem 0;
+  padding: 0.5rem 1.25rem;
+  border-left: 3px solid var(--color-gold);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  font-style: italic;
+  border-radius: 0 4px 4px 0;
+}
+
+.content blockquote p {
+  margin: 0.5rem 0;
+}
+
+.content blockquote p:last-child:not(:only-child) {
+  font-style: normal;
+  color: var(--color-text-soft);
+  font-size: 0.92em;
+}
+
+/* Marginalia: on wide viewports, pull the last-paragraph attribution
+   (the citation after a multi-paragraph blockquote) into a right column.
+   Uses CSS grid so the blockquote's row-height = max(quote height,
+   attribution height) — long attributions push the next blockquote down
+   instead of overlapping with the next attribution's column. Distinctive
+   editorial move; gracefully falls back to under-quote on narrower screens. */
+@media (min-width: 1280px) {
+  .content blockquote {
+    /* Switch to grid: quote body in col 1, attribution in col 2.
+       Strip the blockquote's own bg/border/padding/radius — those
+       responsibilities move to the quote-body paragraph(s) in col 1
+       so the attribution column reads as "in the margin," not "in the
+       same box." */
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    column-gap: 1.5rem;
+    align-items: start;
+    background: transparent;
+    border-left: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .content blockquote > p {
+    grid-column: 1;
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-gold);
+    padding: 0.5rem 1.25rem;
+    margin: 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .content blockquote > p:last-child:not(:only-child) {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: start;
+    background: transparent;
+    border-left: 2px solid var(--color-gold);
+    border-radius: 0;
+    padding: 0.4rem 0 0.4rem 0.75rem;
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.82em;
+    font-style: normal;
+    color: var(--color-text-soft);
+  }
+}
+
+.content hr {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: 2.5rem 0;
+}
+
+.content a {
+  color: var(--color-link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(26, 58, 92, 0.3);
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.content a:hover {
+  color: var(--color-link-hover);
+  border-bottom-color: var(--color-link-hover);
+}
+
+.content code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-bg-alt);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* Tables (used for Standalone Pieces mini-TOC: 4 cols — Title / Author /
+   Publication / Summary). Fixed layout so column widths are honored and
+   long titles wrap instead of stretching the column. */
+.content table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  margin: 1rem 0 2rem;
+  background: var(--color-bg);
+  box-shadow: 0 1px 4px var(--color-shadow);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.content thead {
+  background: var(--color-navy);
+  color: var(--color-bg);
+}
+
+.content thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.content tbody tr {
+  border-top: 1px solid var(--color-rule);
+}
+
+.content tbody td {
+  padding: 9px 14px;
+  vertical-align: top;
+  line-height: 1.45;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Column widths apply to both th and td so headers and body align.
+   Body-cell color/weight is scoped to td so it doesn't override the
+   thead's light-on-navy header styling. */
+.content th:nth-child(1),
+.content td:nth-child(1) { width: 26%; }
+
+.content th:nth-child(2),
+.content td:nth-child(2) { width: 14%; }
+
+.content th:nth-child(3),
+.content td:nth-child(3) { width: 14%; }
+
+.content th:nth-child(4),
+.content td:nth-child(4) { width: 46%; }
+
+.content tbody td:nth-child(1) { font-weight: 500; }
+.content tbody td:nth-child(2) { color: var(--color-text-soft); }
+.content tbody td:nth-child(3) { color: var(--color-text-soft); font-size: 13px; }
+.content tbody td:nth-child(4) { color: var(--color-text); }
+
+.content table a {
+  border-bottom: none;
+}
+
+.content table a:hover {
+  text-decoration: underline;
+}
+
+.content figure {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.content figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 14px var(--color-shadow);
+}
+
+.content figcaption,
+.content .cover-caption {
+  display: block;
+  font-size: 0.88em;
+  color: var(--color-text-soft);
+  font-style: italic;
+  margin-top: 0.75rem;
+  line-height: 1.45;
+}
+
+/* ------------------------------------------------------------------------
+ * Document title header (at top of main)
+ * ------------------------------------------------------------------------ */
+
+.doc-title {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  display: inline-block;
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Editorial dateline strip — replaces the old doc-subtitle H1.
+   Layout: [navy square] week-range · Vol · Issue
+   Sits between the masthead and the cover image, with a gold rule below. */
+.doc-dateline {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin: 0 0 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--color-gold);
+}
+
+.doc-dateline .dateline-mark {
+  flex: 0 0 9px;
+  height: 9px;
+  background: var(--color-navy);
+  border-radius: 1px;
+}
+
+.doc-dateline .dateline-text {
+  flex: 1 1 auto;
+}
+
+/* Notable Quotes is the most "voice-driven" section; give its H1 the
+   display serif treatment too. */
+.content h1#notable-quotes {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 2rem;
+  letter-spacing: -0.005em;
+}
+
+/* ------------------------------------------------------------------------
+ * Cover image block
+ * ------------------------------------------------------------------------ */
+
+.cover-block {
+  margin: 0 0 3rem;
+  text-align: center;
+  /* extra right + bottom margin to leave room for the offset-shadow */
+  padding: 0 12px 12px 0;
+}
+
+.cover-block img {
+  max-width: 100%;
+  max-height: 70vh;
+  height: auto;
+  border-radius: 0;
+  border: 1px solid var(--color-navy);
+  /* Two-tone offset shadow evokes a print plate pasted onto the page */
+  box-shadow: 10px 10px 0 var(--color-bg-alt),
+              10px 10px 0 1px var(--color-rule);
+}
+
+@media (max-width: 720px) {
+  .cover-block { padding: 0 6px 6px 0; }
+  .cover-block img {
+    box-shadow: 5px 5px 0 var(--color-bg-alt),
+                5px 5px 0 1px var(--color-rule);
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Essay typography — applied to the Cross-theme insights section only.
+ * Narrower measure, justified body with hyphenation, larger paragraph
+ * spacing, ornament between H2 sub-sections — all of which signal "this
+ * is essay-length writing, not a section of the bundle."
+ * ------------------------------------------------------------------------ */
+
+.content section.essay {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.content section.essay p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+
+.content section.essay h2 {
+  margin-top: 2.75rem;
+}
+
+/* Ornament between H2 sub-sections (skip on the first H2 — no separator
+   needed right after the H1) */
+.content section.essay h2:not(:first-of-type)::before {
+  content: "✦";
+  display: block;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: normal;
+  letter-spacing: 0.4em;
+  color: var(--color-gold);
+  margin: 3rem 0 2.5rem;
+  opacity: 0.7;
+}
+
+/* The H3 "Rebuttal" (nested under Loyalist) gets a smaller ornament */
+.content section.essay h3:not(:first-of-type)::before {
+  content: "·  ·  ·";
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  margin: 2rem 0 1.5rem;
+}
+
+/* The first paragraph after H1 — slightly larger lede */
+.content section.essay h1 + p {
+  font-size: 1.05em;
+  color: var(--color-text);
+}
+
+/* ------------------------------------------------------------------------
+ * Back-to-TOC / back-link styling
+ * ------------------------------------------------------------------------ */
+
+.content p:has(> a[href="#TOC"]:only-child) {
+  text-align: right;
+  margin: 0.75rem 0 1.5rem;
+}
+
+.content a[href="#TOC"] {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border-bottom: none;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--color-bg-alt);
+  letter-spacing: 0.02em;
+  transition: color 0.12s, background 0.12s;
+}
+
+.content a[href="#TOC"]:hover {
+  color: var(--color-orange);
+  background: rgba(217, 123, 62, 0.12);
+}
+
+/* Dual back-link footer at end of Full Articles */
+.content em a[href^="#summary-"],
+.content em a[href^="#response-"] {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-navy-soft);
+  border-bottom: none;
+  padding: 2px 8px;
+  background: var(--color-bg-alt);
+  border-radius: 3px;
+}
+
+.content em a[href^="#summary-"]:hover,
+.content em a[href^="#response-"]:hover {
+  color: var(--color-orange);
+  background: rgba(217, 123, 62, 0.12);
+}
+
+/* ------------------------------------------------------------------------
+ * Skip-to-content link — invisible until keyboard-focused, then floats
+ * at top-left so users can bypass the sidebar nav.
+ * ------------------------------------------------------------------------ */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 300;
+  padding: 0.55rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--color-navy);
+  color: var(--color-bg);
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ------------------------------------------------------------------------
+ * Focus states (keyboard a11y) — visible gold outline on tab focus
+ * ------------------------------------------------------------------------ */
+
+.content a:focus-visible,
+#sidenav a:focus-visible,
+#nav-toggle:focus-visible,
+#back-to-top:focus-visible,
+#author-index-search:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.content a:focus-visible {
+  border-bottom-color: var(--color-gold);
+}
+
+/* ------------------------------------------------------------------------
+ * Drop-cap on essay lead paragraphs — pure CSS, signals "this is a
+ * publication" without any markup change. Scoped to the Cross-theme
+ * insights essay section, on the paragraph IMMEDIATELY AFTER the byline
+ * (which is an italic-only `<p>`). Catches the lead of the cross-theme
+ * essay + Optimist's take + What the Administration Would Say +
+ * Rebuttal; skips H2 sub-sections without bylines (How the themes
+ * interlock, What's missing, etc.) and the italic byline itself.
+ * ------------------------------------------------------------------------ */
+
+@media (min-width: 720px) {
+  /* Closing essays: drop-cap on the lead paragraph that follows the
+     italic byline subhead (Cross-theme insights / Optimist's take /
+     What the Administration Would Say / Rebuttal). */
+  .content section.essay > h1 + p:has(> em:only-child) + p::first-letter,
+  .content section.essay > h2 + p:has(> em:only-child) + p::first-letter,
+  .content section.essay > h3 + p:has(> em:only-child) + p::first-letter,
+  /* Per-theme syntheses: drop-cap on the first paragraph after each
+     theme H2 inside the Themes section. No byline pattern here — the
+     prose starts directly after the theme title. */
+  .content section.themes-section > h2 + p::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-size: 3.6em;
+    line-height: 0.82;
+    padding: 0.08em 0.12em 0 0;
+    color: var(--color-navy);
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Per-section reading-time pill (injected by JS into each H1 in body)
+ * ------------------------------------------------------------------------ */
+
+.content h1 .reading-time {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 0.4rem;
+}
+
+/* ------------------------------------------------------------------------
+ * Reading progress bar (fixed top, gold, scroll-driven)
+ * ------------------------------------------------------------------------ */
+
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--color-gold);
+  z-index: 200;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  /* sits above the navbar but below the hamburger button */
+  #reading-progress { z-index: 99; }
+}
+
+/* ------------------------------------------------------------------------
+ * Floating "↑ Top" button (appears after scrolling far down)
+ * ------------------------------------------------------------------------ */
+
+#back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--color-navy);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-navy);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 10px var(--color-shadow);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.18s ease-out, transform 0.18s ease-out, background 0.12s, color 0.12s;
+  z-index: 100;
+}
+
+#back-to-top.visible {
+  opacity: 0.95;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background: var(--color-orange);
+  color: var(--color-bg);
+  border-color: var(--color-orange);
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  #back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Author Index search input (injected by JS just above the table)
+ * ------------------------------------------------------------------------ */
+
+#author-index-search {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  margin: 1.25rem 0 1rem;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  border: 1px solid var(--color-rule);
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+#author-index-search::placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------------------
+ * Hover-preview tooltip
+ * ------------------------------------------------------------------------ */
+
+#hover-preview {
+  position: fixed;
+  display: none;
+  max-width: 360px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-rule);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.45;
+  box-shadow: 0 6px 24px var(--color-shadow);
+  z-index: 200;
+  pointer-events: none;
+  /* Fade-in: starts at opacity 0 + 2px translateY; JS adds .visible on next
+     frame to trigger the transition (snap-on would feel jankier). */
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.08s ease-out, transform 0.08s ease-out;
+}
+
+#hover-preview.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pinned (click-to-pin): the preview stops following the cursor and
+   becomes selectable / clickable. Highlights the gold rule to signal
+   "this is now sticky." */
+#hover-preview.pinned {
+  pointer-events: auto;
+  border-left-width: 4px;
+  box-shadow: 0 8px 28px var(--color-shadow);
+}
+
+#hover-preview .preview-close {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 2px;
+}
+
+#hover-preview .preview-close:hover {
+  color: var(--color-orange);
+  background: rgba(217, 123, 62, 0.1);
+}
+
+/* Discoverability glyph after cross-reference links whose target has a
+   summary preview. Added by JS (only on non-touch devices, only when a
+   preview exists for the slug). The `◇` reads as "more here" without
+   shouting; gold ties it to the editorial accent palette. */
+.content a[href^="#summary-"].has-preview::after {
+  content: "◇";
+  color: var(--color-gold);
+  font-size: 0.78em;
+  margin-left: 0.22em;
+  opacity: 0.7;
+  vertical-align: 1px;
+  font-style: normal;
+}
+
+.content a[href^="#summary-"].has-preview:hover::after {
+  opacity: 1;
+  color: var(--color-orange);
+}
+
+#hover-preview .preview-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-orange);
+  margin-bottom: 0.5rem;
+}
+
+#hover-preview .preview-hint {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  margin-left: 0.4em;
+  font-size: 0.95em;
+}
+
+/* When pinned, the close button takes the corner and the hint goes away
+   (the affordance has been used). */
+#hover-preview.pinned .preview-hint {
+  display: none;
+}
+
+/* ------------------------------------------------------------------------
+ * Mobile-responsive (< 720px)
+ * ------------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  #nav-toggle {
+    display: block;
+  }
+
+  #sidenav {
+    transform: translateX(-100%);
+    transition: transform 0.18s ease-out;
+  }
+
+  body.nav-open #sidenav {
+    transform: translateX(0);
+  }
+
+  body.nav-open #nav-overlay {
+    display: block;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 4rem 1.25rem 4rem;
+  }
+
+  body {
+    /* Slightly larger body type on mobile so the H1/body ratio stays
+       balanced when h1 drops to 1.5rem. */
+    font-size: 18px;
+  }
+
+  .content h1 {
+    font-size: 1.5rem;
+  }
+
+  .content h2 {
+    font-size: 1.2rem;
+  }
+
+  .content h3 {
+    font-size: 1.05rem;
+  }
+
+  .doc-dateline {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    flex-wrap: wrap;
+  }
+
+  #hover-preview {
+    /* On mobile, hover previews are flaky (touch devices). Disable. */
+    display: none !important;
+  }
+
+  /* Tables → stacked cards. Each row becomes its own block; each cell
+     gets its column label (data-label) as an inline prefix. Much more
+     readable than horizontal scroll at 375-720px widths. */
+  .content table {
+    display: block;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0;
+    table-layout: auto;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .content thead {
+    /* Hide the header row entirely; column labels live in data-label */
+    display: none;
+  }
+
+  .content tbody {
+    display: block;
+  }
+
+  .content tbody tr {
+    display: block;
+    border: 1px solid var(--color-rule);
+    border-radius: 4px;
+    background: var(--color-bg);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 1px 3px var(--color-shadow);
+  }
+
+  .content tbody td {
+    display: block;
+    width: 100% !important;
+    padding: 0.25rem 0;
+    border: none;
+    font-size: 0.92rem;
+  }
+
+  .content tbody td::before {
+    content: attr(data-label);
+    display: inline-block;
+    min-width: 90px;
+    margin-right: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    vertical-align: top;
+  }
+
+  /* Title cell on mobile — drop the min-width prefix layout and let it
+     flow full-width for the link. */
+  .content tbody td:first-child::before {
+    display: block;
+    margin: 0 0 0.25rem;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Print
+ * ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------
+ * Briefing page — short, sidenavless variant of the main bundle. Inherits
+ * the full palette, typography, masthead + dateline, dark mode, and print
+ * styles; just turns off the sidebar layout offset and centers a single
+ * column. The flat content (H1 → H2 themes → bullets) doesn't need
+ * scrollspy or hover previews; the existing JS is shared and no-ops on
+ * the missing sidenav.
+ * ------------------------------------------------------------------------ */
+
+body.briefing-page .layout {
+  display: block;
+}
+
+body.briefing-page main {
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+  max-width: calc(var(--content-max-width) + 4rem);
+}
+
+body.briefing-page .content-briefing h1 {
+  /* Briefing H1 (the "The Week" title) feels heavier with the same scale
+     as the main bundle. Keep the gold double-rule signature. */
+  font-size: 1.7rem;
+  margin-top: 1rem;
+}
+
+body.briefing-page .content-briefing h2 {
+  /* Section headings get a thin gold rule above so the rhythm of "next
+     theme" is visually obvious without burning vertical space. */
+  border-top: 1px solid var(--color-rule);
+  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+body.briefing-page .content-briefing h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+body.briefing-page .content-briefing ul {
+  /* Slightly tighter than the main bundle's lists — briefings are denser */
+  margin: 0 0 1rem;
+}
+
+body.briefing-page .content-briefing ul ul {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 720px) {
+  body.briefing-page main {
+    padding: 4rem 1.25rem 4rem;
+  }
+}
+
+@page {
+  margin: 2cm 2.5cm;
+}
+
+@media print {
+  /* Hide interactive chrome that has no print meaning */
+  #sidenav, #nav-toggle, #nav-overlay, #hover-preview,
+  #reading-progress, #back-to-top, .skip-link,
+  #author-index-search {
+    display: none !important;
+  }
+
+  body {
+    /* Print serifs render best around 10-11pt; lighter background and
+       no shadow keeps the cost-per-page sane on inkjet/laser. */
+    font-size: 10.5pt;
+    line-height: 1.45;
+    background: #fff;
+    color: #000;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 0;
+    max-width: none;
+  }
+
+  main > .content {
+    max-width: none;
+  }
+
+  /* Layout no longer needs flex; main column flows top-to-bottom */
+  .layout {
+    display: block;
+  }
+
+  /* Each H1 starts on a fresh page so section transitions are obvious in
+     a printed binder. Keep headings glued to the paragraph that follows
+     them (otherwise H2/H3 can orphan at the bottom of a page). */
+  .content h1 {
+    page-break-before: always;
+    break-before: page;
+  }
+  .content h1:first-of-type {
+    page-break-before: auto;
+    break-before: auto;
+  }
+  .content h2, .content h3, .content h4 {
+    page-break-after: avoid;
+    break-after: avoid-page;
+  }
+  .content blockquote, .content table, .content figure, .content pre {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Resolve in-doc anchors to their target text on paper — readers can
+     still see what each link points to. External links get their URL
+     printed inline, scoped to http(s) so internal anchors don't get
+     the noisy treatment. */
+  .content a {
+    color: #000;
+    border-bottom: none;
+    text-decoration: none;
+  }
+  .content a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.82em;
+    color: #555;
+    word-break: break-all;
+  }
+  .content a[href^="#"]::after {
+    content: none;
+  }
+  .content a[href^="#summary-"].has-preview::after {
+    /* Discoverability glyph is web-only; on paper there's nothing to hover */
+    content: none;
+  }
+
+  /* Cover image: keep on the first page; tame the print-plate shadow */
+  .cover-block img {
+    box-shadow: none;
+    border: 1px solid #999;
+    max-height: none;
+  }
+
+  /* Tables: keep the navy header but flatten the box-shadow */
+  .content table {
+    box-shadow: none;
+  }
+  .content thead {
+    background: #ddd;
+    color: #000;
+  }
+
+  /* Bring back simple under-the-quote attribution; the marginalia grid
+     loses meaning when there's no narrow viewport to argue with. */
+  .content blockquote {
+    display: block;
+    border-left: 3px solid #999;
+    background: transparent;
+    padding: 0.5rem 1rem;
+  }
+  .content blockquote > p:last-child:not(:only-child) {
+    border-left: none;
+    padding: 0.4rem 0 0 0;
+    color: #444;
+    font-size: 0.92em;
+    font-style: normal;
+  }
+}
+
+/* ------------------------------------------------------------------------
+ * Dark mode — prefers-color-scheme: dark inverts the palette while
+ * keeping the navy/gold/orange semantic identity. Background goes deep
+ * warm-charcoal; headings/links shift from brand navy to warm cream so
+ * they read on the dark bg; gold and orange brighten slightly for
+ * contrast. The table header stays navy-adjacent so it keeps editorial
+ * weight even on a dark page.
+ * ------------------------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #181a1f;
+    --color-bg-alt: #21242b;
+    --color-text: #e8e5db;
+    --color-text-soft: #b8b5ac;
+    --color-text-muted: #8c8a83;
+    --color-rule: #2f3239;
+    --color-shadow: rgba(0, 0, 0, 0.55);
+    /* Navy → warm cream-gold (so text/headings remain legible on dark bg
+       while preserving the "brand accent" semantic role) */
+    --color-navy: #d2c4a0;
+    --color-navy-soft: #b09f80;
+    --color-gold: #e6c97a;
+    --color-orange: #ea9866;
+    --color-link: #d2c4a0;
+    --color-link-hover: #ea9866;
+    --color-current-nav: #ea9866;
+    --color-current-nav-bg: rgba(234, 152, 102, 0.13);
+  }
+
+  /* Table header keeps a navy-adjacent dark tint so the editorial weight
+     of the navy-on-light scheme survives the inversion. */
+  .content thead {
+    background: #2c3a52;
+    color: var(--color-text);
+  }
+
+  /* Cover image shadow: deeper to seat against dark background */
+  .cover-block img {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Blockquote bg-alt + navy thead background already invert via vars;
+     the gold accent rule on blockquote and table stays. */
+
+  /* Tone down the table inline-style theme accent shadow so it doesn't
+     fight the dark theme — the colored left-border on H2s still reads. */
+}
+</style>
+</head>
+<body class="briefing-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="reading-progress" aria-hidden="true"></div>
+  <button id="back-to-top" aria-label="Back to top" title="Back to top" hidden><span aria-hidden="true">↑</span></button>
+
+  <div class="layout layout-briefing">
+    <main id="main-content">
+      <div class="content content-briefing">
+        <div class="doc-title">CROSSCURRENTS</div>
+        <div class="doc-dateline">
+          <span class="dateline-mark" aria-hidden="true"></span>
+          <span class="dateline-text">
+            Briefing · Week of May 25-30, 2026
+          </span>
+        </div>
+
+        <p>A briefing for someone who hasn't been following.</p>
+<p>Several long-running stories produced settled-looking conclusions: the crime story has a name, the AI story has a Pope, the Republican economic program has been written down by the Treasury Secretary, the Iran war has institutionally defeated the people who warned against it, and the Democratic Party has a concrete four-piece program in front of it whether or not it picks the program up.</p>
+<ul>
+<li>
+<p><strong>The post-2020 crime wave is over, and the pattern has a name.</strong> Crime analyst Jeff Asher projects 2026 will set the lowest U.S. homicide rate on record. Baltimore — long the country's worst-case city — went from 348 homicides in 2019 to 133 in 2025; April 2026 produced four, the lowest single month since at least 1970. Four writers from very different orientations (Free Press, Marginal Revolution, Slow Boring, NYT) converged on the same causal stack: focused-deterrence policing (targeting the small predictable group responsible for retaliatory gang shootings), voters replacing &quot;progressive prosecutors&quot; with tougher ones, and a partial reversal of the post-Ferguson police pullback.</p>
+</li>
+<li>
+<p><strong>Pope Leo XIV's debut encyclical on AI, <em>Magnifica Humanitas</em> (&quot;Magnificent Humanity&quot;), prompted a four-publication convergence.</strong> Writers in UnHerd, Compact, Persuasion, and the New York Times read it as the Catholic Church stepping onto argumentative ground secular AI skeptics have vacated — warning that grounding human dignity in intelligence makes &quot;speciesist&quot; a coherent insult and the case for AI personhood almost inevitable. Ross Douthat dissented in the NYT, calling the document too cautious about the personhood-and-idolatry challenge that AI-lab researchers themselves are now openly raising.</p>
+</li>
+<li>
+<p><strong>The Republican Party formally repudiated free-trade economics, in writing.</strong> Treasury Secretary Scott Bessent's &quot;While America Slept&quot; speech treated comparative-advantage theory — the foundational case for free trade since the 1820s — as a historical mistake the GOP has now corrected. A separate &quot;shockingly weird Warren-Trump alliance&quot; passed the 21st Century ROAD to Housing Act, banning large institutional investors from buying existing single-family homes.</p>
+</li>
+<li>
+<p><strong>The Iran war's institutional aftermath is consolidating: the war-skeptics are being defeated even as the war's failures vindicate them.</strong> A Free Press profile shows Pentagon strategist Elbridge Colby — hired as the &quot;prioritizer&quot; meant to restrain Middle East entanglement — overrun by his own administration. DNI Tulsi Gabbard resigned; reporter Ken Klippenstein documents that the position was deliberately neutered in 2004, so her exit changes nothing structurally. Stanford political scientist Francis Fukuyama argues drones have now closed the operational middle of warfare entirely — combined-arms maneuver warfare is over until somebody fields cheap anti-drone systems.</p>
+</li>
+<li>
+<p><strong>Matthew Yglesias published a four-piece program for Democrats</strong> in a single week: stop ducking the growth question, drop the empty &quot;affordability&quot; rhetoric, re-embrace deficit politics (tax-the-rich plus defend-Social-Security under that frame), and broker an alliance between organized labor and the supply-side &quot;abundance&quot; agenda (housing, nuclear power, infrastructure).</p>
+</li>
+<li>
+<p><strong>The Texas Senate runoff opened a real path for Democrats to flip the U.S. Senate in 2026.</strong> Texas Attorney General Ken Paxton's 64-36 demolition of Sen. John Cornyn in the Republican primary — combined with Trump's late, weak endorsement issued at his lowest approval rating — left the GOP nominating a scandal-plagued candidate against Democratic state legislator James Talarico. Forecaster Nate Silver reads it as a self-inflicted Republican wound; Texas hasn't elected a Democratic senator since 1988.</p>
+</li>
+<li>
+<p><strong>Two non-Western windows confirmed the global system is being rewritten.</strong> Economic historian Adam Tooze quantified China's 1978-2022 growth surge as 20 times Japan's 1953-1991 takeoff in population lifted out of poverty. Nigerian analyst Nouridin Melo reported the new 650,000-barrel-per-day Dangote Refinery is breaking the colonial-era export-crude / import-refined architecture, exporting refined fuel to five other African states. China Digital Times documented dozens of phrases the Chinese government soft-censored around the May 14-15 Trump-Xi summit Beijing publicly claimed as a victory.</p>
+</li>
+</ul>
+<p>What to watch: whether the Talarico Senate path firms up after Texas's runoff is certified, whether any of the Yglesias program shows up in a 2028 Democratic positioning, and whether the AI-encyclical conversation hardens into the kind of durable taboo Catholic mobilization built around human cloning two decades ago.</p>
+
+      </div>
+    </main>
+  </div>
+
+  <script>/* Crosscurrents bundle JavaScript
+ * Vanilla JS — no framework.
+ * Three behaviors: scrollspy nav highlighting, hover-preview tooltips for
+ * Article Summaries links, mobile hamburger drawer toggle. */
+
+(function () {
+  'use strict';
+
+  // ----------------------------------------------------------------------
+  // Scrollspy: highlight the current section in the sidebar nav
+  // ----------------------------------------------------------------------
+
+  function setupScrollspy() {
+    var headings = document.querySelectorAll('.content h1[id], .content h2[id], .content h3[id]');
+    if (!headings.length) return;
+
+    var navLinks = {};
+    document.querySelectorAll('#sidenav a[href^="#"]').forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      if (id) navLinks[id] = a;
+    });
+
+    var nav = document.getElementById('sidenav');
+    // Cache nav's rect once; refresh on resize. Avoids per-tick layout reads
+    // during scroll (every IntersectionObserver fire was calling
+    // getBoundingClientRect inside highlight() before).
+    var navRect = nav ? nav.getBoundingClientRect() : null;
+    if (nav) {
+      window.addEventListener('resize', function () {
+        navRect = nav.getBoundingClientRect();
+      });
+    }
+    // Track recent user interaction with the sidebar — if the reader just
+    // scrolled the nav by hand we don't want a scrollIntoView yanking it
+    // back. 1000ms cooldown is the design-review's recommendation.
+    var lastUserNavScroll = 0;
+    if (nav) {
+      nav.addEventListener('scroll', function () {
+        lastUserNavScroll = Date.now();
+      }, {passive: true});
+    }
+
+    var currentId = null;
+    function highlight(id) {
+      if (id === currentId) return;
+      if (currentId && navLinks[currentId]) {
+        navLinks[currentId].classList.remove('current');
+      }
+      if (id && navLinks[id]) {
+        navLinks[id].classList.add('current');
+        // Auto-expand parent <details> so the highlighted entry is visible
+        var detail = navLinks[id].closest('details');
+        while (detail) {
+          detail.open = true;
+          detail = detail.parentElement && detail.parentElement.closest('details');
+        }
+        // Scroll the nav so the highlighted entry is in view (if off-screen).
+        // Skipped when the reader scrolled the sidebar in the last 1s — keeps
+        // the nav from feeling "alive" when the user is browsing it directly.
+        if (nav && navRect && (Date.now() - lastUserNavScroll) > 1000) {
+          var rect = navLinks[id].getBoundingClientRect();
+          if (rect.top < navRect.top || rect.bottom > navRect.bottom) {
+            navLinks[id].scrollIntoView({block: 'center', behavior: 'auto'});
+          }
+        }
+      }
+      currentId = id;
+    }
+
+    // Throttle highlight via rAF + a 150ms floor: IntersectionObserver can
+    // fire several times per scroll tick on long pages with dense headings,
+    // and the recalc + classList churn shows up on low-end Android.
+    var pendingId = null;
+    var rafScheduled = false;
+    var lastHighlightAt = 0;
+    function scheduleHighlight(id) {
+      pendingId = id;
+      if (rafScheduled) return;
+      rafScheduled = true;
+      var delay = Math.max(0, 150 - (Date.now() - lastHighlightAt));
+      setTimeout(function () {
+        requestAnimationFrame(function () {
+          rafScheduled = false;
+          lastHighlightAt = Date.now();
+          if (pendingId) highlight(pendingId);
+        });
+      }, delay);
+    }
+
+    // Use IntersectionObserver: trigger when a heading crosses the top 1/3 of viewport
+    var observer = new IntersectionObserver(function (entries) {
+      // Find the most-recently-passed heading
+      var visibleEntries = entries.filter(function (e) { return e.isIntersecting; });
+      if (visibleEntries.length === 0) return;
+      // Pick the heading with the smallest boundingClientRect.top that's > 0 (closest to top edge)
+      var sorted = visibleEntries.sort(function (a, b) {
+        return a.boundingClientRect.top - b.boundingClientRect.top;
+      });
+      scheduleHighlight(sorted[0].target.id);
+    }, {
+      rootMargin: '0px 0px -66% 0px',
+      threshold: [0, 1]
+    });
+
+    headings.forEach(function (h) { observer.observe(h); });
+
+    // Initial highlight: pick first heading
+    if (headings[0]) highlight(headings[0].id);
+  }
+
+  // ----------------------------------------------------------------------
+  // Mobile hamburger drawer
+  // ----------------------------------------------------------------------
+
+  function setupHamburger() {
+    var toggle = document.getElementById('nav-toggle');
+    var overlay = document.getElementById('nav-overlay');
+    var nav = document.getElementById('sidenav');
+    if (!toggle) return;
+
+    var savedFocus = null;
+
+    function close() {
+      document.body.classList.remove('nav-open');
+      if (savedFocus && typeof savedFocus.focus === 'function') {
+        try { savedFocus.focus(); } catch (e) {}
+      }
+      savedFocus = null;
+    }
+
+    function open() {
+      // Save where focus was so we can restore it on close
+      savedFocus = document.activeElement;
+      document.body.classList.add('nav-open');
+      // Move focus into the drawer for keyboard users
+      if (nav) {
+        var firstLink = nav.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+        if (firstLink) firstLink.focus();
+      }
+    }
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (document.body.classList.contains('nav-open')) {
+        close();
+      } else {
+        open();
+      }
+    });
+
+    if (overlay) overlay.addEventListener('click', close);
+
+    // Close drawer when a nav link is clicked
+    document.querySelectorAll('#sidenav a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth <= 720) close();
+      });
+    });
+
+    // ESC closes drawer
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+
+    // Focus trap: while drawer is open, Tab cycles within it
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      if (!document.body.classList.contains('nav-open')) return;
+      if (!nav) return;
+      var focusable = nav.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+      if (!focusable.length) return;
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Hover-preview tooltips for Article Summaries links
+  // ----------------------------------------------------------------------
+  // Preview text is loaded once from a JSON island (#summary-previews)
+  // and looked up by anchor slug at hover time — much smaller bundle
+  // than repeating each preview inline as data-preview attributes.
+
+  function setupHoverPreviews() {
+    var preview = document.getElementById('hover-preview');
+    if (!preview) return;
+    if ('ontouchstart' in window) return; // touch devices — skip hover behavior
+
+    var island = document.getElementById('summary-previews');
+    var previews = {};
+    if (island) {
+      try { previews = JSON.parse(island.textContent || '{}'); }
+      catch (e) { return; }
+    }
+    if (!Object.keys(previews).length) return;
+
+    // Discoverability: mark every cross-reference link whose target has a
+    // preview so CSS can drop a small `◇` glyph after it. Skips back-links
+    // (already styled inside `<em>`) so they don't get a double-marker.
+    document.querySelectorAll('a[href^="#summary-"]').forEach(function (a) {
+      if (a.closest('em')) return;
+      var href = a.getAttribute('href') || '';
+      var slug = href.slice('#summary-'.length);
+      if (previews[slug]) a.classList.add('has-preview');
+    });
+
+    function getPreviewForLink(a) {
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('#summary-') !== 0) return null;
+      return previews[href.slice('#summary-'.length)] || null;
+    }
+
+    var showTimer = null;
+    var hideTimer = null;
+
+    function positionAt(x, y) {
+      var rect = preview.getBoundingClientRect();
+      var pw = rect.width, ph = rect.height;
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var left = x + 18, top = y + 18;
+      if (left + pw + 12 > vw) left = x - pw - 18;
+      if (top + ph + 12 > vh) top = vh - ph - 12;
+      if (top < 8) top = 8;
+      if (left < 8) left = 8;
+      preview.style.left = left + 'px';
+      preview.style.top = top + 'px';
+    }
+
+    function showPreview(text, x, y) {
+      if (preview.classList.contains('pinned')) return;
+      preview.innerHTML =
+        '<span class="preview-label">Summary preview' +
+        ' <span class="preview-hint">⇧+click to pin</span></span>' + text;
+      preview.style.display = 'block';
+      preview.setAttribute('aria-hidden', 'false');
+      preview.setAttribute('aria-live', 'polite');
+      positionAt(x, y);
+      // Defer the `.visible` class to next frame so CSS opacity transition
+      // fires (otherwise it would paint at final opacity immediately).
+      requestAnimationFrame(function () {
+        preview.classList.add('visible');
+      });
+    }
+
+    function hidePreview() {
+      if (preview.classList.contains('pinned')) return;
+      preview.classList.remove('visible');
+      preview.setAttribute('aria-hidden', 'true');
+      // Wait for fade-out before unmounting so the transition is visible.
+      setTimeout(function () {
+        if (!preview.classList.contains('visible')) {
+          preview.style.display = 'none';
+        }
+      }, 120);
+    }
+
+    function pinPreview() {
+      preview.classList.add('pinned');
+      // Inject a close button (idempotent — only added once per pin).
+      if (!preview.querySelector('.preview-close')) {
+        var btn = document.createElement('button');
+        btn.className = 'preview-close';
+        btn.setAttribute('aria-label', 'Close pinned preview');
+        btn.innerHTML = '&times;';
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          unpinPreview();
+        });
+        preview.appendChild(btn);
+      }
+    }
+
+    function unpinPreview() {
+      preview.classList.remove('pinned');
+      var btn = preview.querySelector('.preview-close');
+      if (btn) btn.remove();
+      hidePreview();
+    }
+
+    var content = document.querySelector('.content');
+    if (!content) return;
+
+    content.addEventListener('mouseover', function (e) {
+      if (preview.classList.contains('pinned')) return;
+      var a = e.target.closest('a[href^="#summary-"]');
+      if (!a) return;
+      var text = getPreviewForLink(a);
+      if (!text) return;
+      clearTimeout(hideTimer);
+      clearTimeout(showTimer);
+      var x = e.clientX, y = e.clientY;
+      showTimer = setTimeout(function () { showPreview(text, x, y); }, 200);
+    });
+
+    content.addEventListener('mousemove', function (e) {
+      if (preview.classList.contains('pinned')) return;
+      if (preview.style.display !== 'block') return;
+      var a = e.target.closest('a[href^="#summary-"]');
+      if (!a) return;
+      positionAt(e.clientX, e.clientY);
+    });
+
+    content.addEventListener('mouseout', function (e) {
+      if (preview.classList.contains('pinned')) return;
+      var a = e.target.closest('a[href^="#summary-"]');
+      if (!a) return;
+      clearTimeout(showTimer);
+      hideTimer = setTimeout(hidePreview, 80);
+    });
+
+    // Shift+click pins the preview: prevents anchor navigation, freezes the
+    // tooltip at the cursor, makes it selectable, and shows a close button.
+    content.addEventListener('click', function (e) {
+      if (!e.shiftKey) return;
+      var a = e.target.closest('a[href^="#summary-"]');
+      if (!a || a.closest('em')) return;
+      var text = getPreviewForLink(a);
+      if (!text) return;
+      e.preventDefault();
+      clearTimeout(hideTimer);
+      clearTimeout(showTimer);
+      // Force a fresh render (not blocked by an existing `pinned` state)
+      preview.classList.remove('pinned');
+      showPreview(text, e.clientX, e.clientY);
+      pinPreview();
+    });
+
+    // ESC closes a pinned preview.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && preview.classList.contains('pinned')) {
+        unpinPreview();
+      }
+    });
+
+    // Click outside a pinned preview closes it.
+    document.addEventListener('click', function (e) {
+      if (!preview.classList.contains('pinned')) return;
+      if (preview.contains(e.target)) return;
+      // Don't unpin from the same shift-click that just pinned it.
+      if (e.shiftKey && e.target.closest('a[href^="#summary-"]')) return;
+      unpinPreview();
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Reading progress bar — gold strip across the top of the viewport
+  // ----------------------------------------------------------------------
+
+  function setupReadingProgress() {
+    var bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    function update() {
+      var doc = document.documentElement;
+      var maxScroll = doc.scrollHeight - window.innerHeight;
+      var pct = maxScroll > 0 ? Math.min(1, window.scrollY / maxScroll) : 0;
+      bar.style.width = (pct * 100).toFixed(2) + '%';
+    }
+    window.addEventListener('scroll', update, {passive: true});
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  // ----------------------------------------------------------------------
+  // Per-section reading time — appends "~N min · M words" to each H1
+  // ----------------------------------------------------------------------
+
+  function setupReadingTime() {
+    var WORDS_PER_MIN = 220;
+    var headings = document.querySelectorAll('.content h1[data-words]');
+    headings.forEach(function (h1) {
+      var n = parseInt(h1.dataset.words, 10);
+      if (!n || n < 50) return;  // skip near-empty sections
+      var minutes = Math.max(1, Math.round(n / WORDS_PER_MIN));
+      var span = document.createElement('span');
+      span.className = 'reading-time';
+      span.textContent = '~' + minutes + ' min · ' + n.toLocaleString() + ' words';
+      h1.appendChild(span);
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Floating "↑ Top" button — fades in after a long scroll
+  // ----------------------------------------------------------------------
+
+  function setupBackToTop() {
+    var btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    btn.removeAttribute('hidden');
+    function update() {
+      if (window.scrollY > 1200) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    }
+    btn.addEventListener('click', function () {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      if (window.innerWidth <= 720) document.body.classList.add('nav-open');
+    });
+    window.addEventListener('scroll', update, {passive: true});
+    update();
+  }
+
+  // ----------------------------------------------------------------------
+  // Author Index search — inserts a search input above the index table
+  // and live-filters rows by author / title / publication / summary text
+  // ----------------------------------------------------------------------
+
+  function setupAuthorIndexSearch() {
+    var heading = document.getElementById('index-by-author');
+    if (!heading) return;
+    // Find the first table sibling after the heading
+    var table = heading.nextElementSibling;
+    while (table && table.tagName !== 'TABLE') table = table.nextElementSibling;
+    if (!table) return;
+
+    var input = document.createElement('input');
+    input.type = 'search';
+    input.id = 'author-index-search';
+    input.placeholder = 'Find author, title, or publication…';
+    input.autocomplete = 'off';
+    input.setAttribute('aria-label', 'Filter author index');
+    table.parentNode.insertBefore(input, table);
+
+    var rows = Array.from(table.querySelectorAll('tbody tr'));
+    // Precompute lowercase text for each row
+    var rowText = rows.map(function (r) { return r.textContent.toLowerCase(); });
+
+    input.addEventListener('input', function () {
+      var q = input.value.toLowerCase().trim();
+      rows.forEach(function (row, i) {
+        row.style.display = (!q || rowText[i].indexOf(q) !== -1) ? '' : 'none';
+      });
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Nav-link clicks inside <summary> should NOT toggle the parent <details>
+  // ----------------------------------------------------------------------
+
+  function setupNavLinkClicks() {
+    document.querySelectorAll('#sidenav summary a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        // Let the anchor navigate; suppress the details-toggle bubble.
+        e.stopPropagation();
+      });
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Back-to-TOC link behavior
+  // ----------------------------------------------------------------------
+  // The `<a id="TOC">` anchor lives in the sidebar. On desktop the sidebar
+  // is always visible so a raw anchor-jump to it does nothing visible; on
+  // mobile the sidebar is hidden behind a hamburger so the jump also does
+  // nothing. Intercept `#TOC` clicks to scroll the page to the top AND
+  // open the mobile drawer.
+
+  function setupTocLinks() {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href="#TOC"]');
+      if (!a) return;
+      e.preventDefault();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+      if (window.innerWidth <= 720) {
+        document.body.classList.add('nav-open');
+      }
+    });
+  }
+
+  // ----------------------------------------------------------------------
+  // Boot
+  // ----------------------------------------------------------------------
+
+  function init() {
+    setupScrollspy();
+    setupHamburger();
+    setupHoverPreviews();
+    setupTocLinks();
+    setupReadingProgress();
+    setupReadingTime();
+    setupBackToTop();
+    setupAuthorIndexSearch();
+    setupNavLinkClicks();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
